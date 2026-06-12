@@ -1,0 +1,6 @@
+# Deploy only the static site; everything else lives on GitHub
+*
+!website
+!website/public
+!website/public/**
+!vercel.json
