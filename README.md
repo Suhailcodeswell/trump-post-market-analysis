@@ -6,6 +6,8 @@
 > and the market did *after* he posted, including an interactive "what if I'd invested
 > $100,000" calculator.
 
+**Live site:** [trump-post-market-analysis.vercel.app](https://trump-post-market-analysis.vercel.app)
+
 **Skills demonstrated:** Python data engineering · NLP sentiment analysis · SQL star-schema
 modeling (PostgreSQL) · window functions · financial event-study methodology · interactive
 data visualization.
