@@ -14,7 +14,7 @@ const MARKET_LABELS = {
 const CONTACT = {
   linkedin: "#", // e.g. https://www.linkedin.com/in/your-handle
   email: "#", // e.g. mailto:you@gmail.com
-  github: "https://github.com/", // project repository URL
+  github: "https://github.com/Suhailcodeswell/trump-post-market-analysis",
 };
 
 const TRANSITION_OUT_MS = 220;
