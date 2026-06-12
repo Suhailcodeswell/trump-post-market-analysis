@@ -201,6 +201,32 @@ function setupSnap() {
     },
     { passive: true }
   );
+
+  // At the top of a tab, pull down to return to the hero (phone only).
+  document.querySelectorAll(".panel").forEach((panel) => {
+    let panelTouchY = 0;
+
+    panel.addEventListener(
+      "touchstart",
+      (e) => {
+        if (!isMobileSnap() || e.touches.length !== 1) return;
+        panelTouchY = e.touches[0].clientY;
+      },
+      { passive: true }
+    );
+
+    panel.addEventListener(
+      "touchend",
+      (e) => {
+        if (!isMobileSnap() || autoScrolling) return;
+        const dy = e.changedTouches[0].clientY - panelTouchY;
+        if (dy > 55 && panel.scrollTop <= 8) {
+          scrollToTop();
+        }
+      },
+      { passive: true }
+    );
+  });
 }
 
 /* ── Tabs with directional slides ── */
