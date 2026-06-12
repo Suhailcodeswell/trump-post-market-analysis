@@ -24,18 +24,36 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
-  margin: 0;
   font-family: var(--font-sans);
   font-size: 1.05rem;
   line-height: 1.7;
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+}
+
+/* ── Snap scrolling between the two screens ── */
+.snap-wrap {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.snap-screen {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100vh;
+  height: 100dvh;
 }
 
 /* ── Navigation ── */
@@ -124,97 +142,89 @@ body {
   box-shadow: 0 2px 8px rgba(30, 58, 95, 0.28);
 }
 
-/* ── Panels (tabs) ── */
-#panels {
-  min-height: 100vh;
-}
-
-.panel {
-  display: none;
-  padding-top: var(--nav-height);
-}
-
-.panel.active {
-  display: block;
-  animation: panelIn 0.55s var(--ease-out);
-}
-
-@keyframes panelIn {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-#panels.leaving .panel.active {
-  animation: panelOut 0.22s ease forwards;
-}
-
-@keyframes panelOut {
-  to {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-}
-
-/* ── Hero ── */
+/* ── Screen 1: Hero ── */
 .hero {
   position: relative;
-  min-height: calc(100vh - var(--nav-height));
   display: flex;
   align-items: center;
-  padding: 3rem 1.5rem 4rem;
+  padding: calc(var(--nav-height) + 2rem) 1.5rem 4rem;
   overflow: hidden;
 }
 
-.hero::before {
-  content: "";
+/* The photo: anchored center-right, fully opaque on its dark side,
+   blending into the page background toward the text. */
+.hero-image {
   position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 55% at 18% 20%, rgba(45, 90, 135, 0.09), transparent 65%),
-    radial-gradient(ellipse 55% 60% at 85% 80%, rgba(190, 60, 50, 0.06), transparent 70%);
+  top: 0;
+  right: 0;
+  width: 64%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 20%;
+  opacity: 0;
   pointer-events: none;
+  user-select: none;
+  filter: saturate(0.92) contrast(1.03);
+  animation: heroImageIn 1.4s var(--ease-out) 0.3s forwards;
+  z-index: 1;
 }
 
-.hero::after {
-  content: "";
+@keyframes heroImageIn {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Shade layer: darkens the right edge, dissolves into the
+   page background on the left and at the bottom. */
+.hero-shade {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(22, 24, 29, 0.07) 1px, transparent 1px);
-  background-size: 26px 26px;
-  mask-image: radial-gradient(ellipse 60% 60% at 25% 35%, black, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 25% 35%, black, transparent 75%);
+  z-index: 2;
   pointer-events: none;
+  background:
+    linear-gradient(to right,
+      var(--bg) 0%,
+      var(--bg) 30%,
+      rgba(250, 249, 247, 0.82) 44%,
+      rgba(250, 249, 247, 0.25) 62%,
+      rgba(250, 249, 247, 0) 78%),
+    linear-gradient(to left,
+      rgba(12, 18, 28, 0.42) 0%,
+      rgba(12, 18, 28, 0.18) 18%,
+      rgba(12, 18, 28, 0) 40%),
+    linear-gradient(to top,
+      var(--bg) 0%,
+      rgba(250, 249, 247, 0.55) 7%,
+      rgba(250, 249, 247, 0) 18%),
+    linear-gradient(to bottom,
+      rgba(250, 249, 247, 0.6) 0%,
+      rgba(250, 249, 247, 0) 14%);
 }
 
 .hero-inner {
-  max-width: var(--max-width);
+  max-width: 1100px;
   margin: 0 auto;
   width: 100%;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
-/* Staggered entrance on first load */
 .stagger {
   opacity: 0;
   transform: translateY(16px);
   animation: riseIn 0.7s var(--ease-out) forwards;
 }
 
-.stagger:nth-child(1) { animation-delay: 0.15s; }
-.stagger:nth-child(2) { animation-delay: 0.25s; }
-.stagger:nth-child(3) { animation-delay: 0.35s; }
-.stagger:nth-child(4) { animation-delay: 0.45s; }
-.stagger:nth-child(5) { animation-delay: 0.55s; }
-.stagger:nth-child(6) { animation-delay: 0.65s; }
-.stagger:nth-child(7) { animation-delay: 0.75s; }
-.stagger:nth-child(8) { animation-delay: 0.85s; }
+.stagger:nth-child(1) { animation-delay: 0.2s; }
+.stagger:nth-child(2) { animation-delay: 0.32s; }
+.stagger:nth-child(3) { animation-delay: 0.44s; }
+.stagger:nth-child(4) { animation-delay: 0.56s; }
 
 @keyframes riseIn {
   to {
@@ -234,159 +244,24 @@ body {
 
 .hero h1 {
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-size: clamp(2.3rem, 5.2vw, 3.9rem);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.12;
   margin: 0 0 1.5rem;
-  max-width: 14ch;
+  max-width: 13ch;
 }
 
 .hero-lead {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   color: var(--text-muted);
-  max-width: 38rem;
-  margin-bottom: 2rem;
-}
-
-.hero-body {
-  max-width: 36rem;
-  color: var(--text);
-}
-
-.hero-body p {
-  margin: 0 0 1rem;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 0.75rem;
-  margin: 1.75rem 0 0.5rem;
-  flex-wrap: wrap;
-}
-
-.btn-primary,
-.btn-ghost {
-  font-family: var(--font-sans);
-  font-size: 0.92rem;
-  font-weight: 500;
-  padding: 0.7rem 1.4rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out),
-    background 0.25s, color 0.25s, border-color 0.25s;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-  border: 1px solid var(--accent);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(30, 58, 95, 0.3);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--border);
-}
-
-.btn-ghost:hover {
-  border-color: var(--accent-light);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
-}
-
-.hero-image {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: min(46vw, 600px);
-  height: auto;
-  opacity: 0;
-  pointer-events: none;
-  user-select: none;
-  filter: grayscale(28%) saturate(0.9) contrast(1.04);
-  mask-image: linear-gradient(to left, black 62%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to left, black 62%, transparent 100%);
-  animation: heroImageIn 1.4s var(--ease-out) 0.4s forwards;
-  z-index: 1;
-}
-
-@keyframes heroImageIn {
-  from {
-    opacity: 0;
-    transform: translateY(-47%) scale(1.04);
-  }
-  to {
-    opacity: 0.5;
-    transform: translateY(-50%) scale(1);
-  }
-}
-
-/* ── Market chips ── */
-.market-chips {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.75rem;
-  margin: 2.25rem 0 0;
-  max-width: 44rem;
-}
-
-.chip {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.1rem;
-  padding: 0.85rem 1rem;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: var(--font-sans);
-  text-align: left;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out),
-    border-color 0.3s;
-}
-
-.chip:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-  border-color: var(--accent-light);
-}
-
-.chip-name {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.chip-stat {
-  font-family: var(--font-serif);
-  font-size: 1.45rem;
-  line-height: 1.15;
-  color: var(--accent);
-}
-
-.chip-stat.up {
-  color: var(--green);
-}
-
-.chip-date {
-  font-size: 0.72rem;
-  color: var(--text-muted);
+  max-width: 34rem;
+  margin-bottom: 1.75rem;
 }
 
 .hero-byline {
   font-size: 0.92rem;
   color: var(--text-muted);
-  margin: 1.5rem 0 0;
+  margin: 0;
 }
 
 .hero-byline strong {
@@ -409,8 +284,168 @@ body {
   border-bottom-color: var(--accent-light);
 }
 
+/* Scroll cue */
+.scroll-cue {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0;
+  animation: riseIn 0.7s var(--ease-out) 1s forwards;
+  transition: color 0.2s;
+}
+
+.scroll-cue:hover {
+  color: var(--accent);
+}
+
+.scroll-cue svg {
+  animation: cueBounce 2s ease-in-out infinite;
+}
+
+@keyframes cueBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* ── Screen 2: The deck ── */
+.deck {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--nav-height);
+  background: var(--bg);
+}
+
+#panels {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.panel {
+  position: absolute;
+  inset: 0;
+  display: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.panel.active {
+  display: block;
+}
+
+/* Horizontal slide transitions */
+.panel.active.from-right {
+  animation: slideInRight 0.5s var(--ease-out);
+}
+
+.panel.active.from-left {
+  animation: slideInLeft 0.5s var(--ease-out);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#panels.leaving-left .panel.active {
+  animation: slideOutLeft 0.22s ease forwards;
+}
+
+#panels.leaving-right .panel.active {
+  animation: slideOutRight 0.22s ease forwards;
+}
+
+@keyframes slideOutLeft {
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes slideOutRight {
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+/* Deck edge arrows */
+.deck-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-muted);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: color 0.2s, border-color 0.2s, transform 0.25s var(--ease-out),
+    opacity 0.3s;
+}
+
+.deck-arrow:hover {
+  color: var(--accent);
+  border-color: var(--accent-light);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.deck-arrow-prev {
+  left: 0.9rem;
+}
+
+.deck-arrow-next {
+  right: 0.9rem;
+}
+
+.deck-arrow[disabled] {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ── Section content ── */
-.panel:not(#overview) {
+.panel:not(#story) {
   background:
     radial-gradient(ellipse 80% 30% at 50% 0%, rgba(45, 90, 135, 0.05), transparent 70%);
 }
@@ -418,14 +453,14 @@ body {
 .section-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 4rem 1.5rem 5rem;
+  padding: 3rem 1.5rem 5rem;
   position: relative;
 }
 
 .section-inner[data-num]::before {
   content: attr(data-num);
   position: absolute;
-  top: 1.5rem;
+  top: 1rem;
   right: 1rem;
   font-family: var(--font-serif);
   font-size: clamp(6rem, 14vw, 11rem);
@@ -476,6 +511,32 @@ body {
   font-style: italic;
 }
 
+/* ── Swipe hint ── */
+.swipe-hint {
+  margin-top: 2.5rem;
+}
+
+.swipe-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.swipe-btn svg {
+  animation: nudgeRight 1.8s ease-in-out infinite;
+}
+
+@keyframes nudgeRight {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+.swipe-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0.75rem 0 0;
+}
+
 /* ── Scroll reveal ── */
 .reveal {
   opacity: 0;
@@ -491,10 +552,6 @@ body {
 /* ── Chart blocks ── */
 .chart-block {
   margin-bottom: 3rem;
-}
-
-.chart-block:last-of-type {
-  margin-bottom: 1rem;
 }
 
 .chart-caption {
@@ -540,6 +597,99 @@ body {
   display: flex;
   justify-content: flex-end;
   margin-top: 2.5rem;
+}
+
+/* ── Buttons ── */
+.btn-primary,
+.btn-ghost {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out),
+    background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(30, 58, 95, 0.3);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Market chips ── */
+.market-chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin: 2rem 0 0;
+  max-width: 44rem;
+}
+
+.chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  text-align: left;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out),
+    border-color 0.3s;
+}
+
+.chip:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  border-color: var(--accent-light);
+}
+
+.chip-name {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.chip-stat {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  line-height: 1.15;
+  color: var(--accent);
+}
+
+.chip-stat.up {
+  color: var(--green);
+}
+
+.chip-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
 }
 
 /* ── Stats ── */
@@ -859,20 +1009,17 @@ body {
   color: var(--text);
 }
 
-/* ── Footer ── */
-.site-footer {
-  padding: 2.5rem 1.5rem;
+/* ── Footer (inside the About panel) ── */
+.panel-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--border);
   text-align: center;
   font-size: 0.85rem;
   color: var(--text-muted);
 }
 
-.site-footer a {
-  color: var(--accent-light);
-}
-
-.site-footer strong {
+.panel-footer strong {
   color: var(--text);
 }
 
@@ -881,6 +1028,7 @@ body {
 }
 
 .footer-links a {
+  color: var(--accent-light);
   margin: 0 0.6rem;
   text-decoration: none;
   border-bottom: 1px solid transparent;
@@ -900,22 +1048,13 @@ body {
   body {
     font-size: 1.08rem;
   }
-
-  .hero-inner,
-  .section-inner {
-    max-width: var(--max-width);
-  }
-
-  .section-inner {
-    padding: 5rem 1.5rem 6rem;
-  }
 }
 
 /* ── Responsive: tablet ── */
 @media (max-width: 900px) {
   .hero-image {
-    width: 58vw;
-    right: -8%;
+    width: 78%;
+    object-position: 75% 15%;
   }
 
   .market-chips {
@@ -949,50 +1088,57 @@ body {
   }
 
   .hero {
-    min-height: auto;
-    padding: 2.5rem 1.25rem 3.5rem;
-    align-items: flex-start;
+    padding: calc(var(--nav-height) + 1.5rem) 1.25rem 4.5rem;
+    align-items: flex-end;
   }
 
-  /* On a phone the photo becomes a soft backdrop in the top corner
-     instead of a side-by-side panel. */
+  /* Phone: photo fills the top, text sits at the bottom over the blend. */
   .hero-image {
-    width: 92vw;
-    right: -28vw;
-    top: 8rem;
-    transform: none;
-    mask-image: linear-gradient(to bottom, black 30%, transparent 95%);
-    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 95%);
+    width: 100%;
+    height: 62%;
+    object-position: 60% 12%;
   }
 
-  @keyframes heroImageIn {
-    from {
-      opacity: 0;
-      transform: scale(1.04);
-    }
-    to {
-      opacity: 0.22;
-      transform: scale(1);
-    }
+  .hero-shade {
+    background:
+      linear-gradient(to bottom,
+        rgba(250, 249, 247, 0) 0%,
+        rgba(250, 249, 247, 0.35) 38%,
+        var(--bg) 58%),
+      linear-gradient(to left,
+        rgba(12, 18, 28, 0.35) 0%,
+        rgba(12, 18, 28, 0) 45%),
+      linear-gradient(to top,
+        var(--bg) 0%,
+        rgba(250, 249, 247, 0) 30%);
   }
 
   .hero h1 {
     max-width: none;
+    font-size: 2.1rem;
   }
 
   .hero-lead {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
-  .hero-actions {
-    width: 100%;
+  .byline-links {
+    display: block;
+    margin: 0.4rem 0 0;
   }
 
-  .hero-actions .btn-primary,
-  .hero-actions .btn-ghost {
-    flex: 1;
-    text-align: center;
-    padding: 0.75rem 0.5rem;
+  .scroll-cue {
+    bottom: 1rem;
+  }
+
+  .section-inner {
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .section-inner[data-num]::before {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 5rem;
   }
 
   .market-chips {
@@ -1007,16 +1153,6 @@ body {
 
   .chip-stat {
     font-size: 1.25rem;
-  }
-
-  .section-inner {
-    padding: 2.75rem 1.25rem 3.5rem;
-  }
-
-  .section-inner[data-num]::before {
-    top: 0.75rem;
-    right: 0.5rem;
-    font-size: 5.5rem;
   }
 
   .stats-row {
@@ -1038,10 +1174,6 @@ body {
 
   .chart-block {
     margin-bottom: 2.25rem;
-  }
-
-  .chart-frame {
-    border-radius: 8px;
   }
 
   .chart-frame:hover {
@@ -1079,27 +1211,36 @@ body {
   .panel-next .btn-ghost {
     width: 100%;
   }
-}
 
-/* ── Responsive: small phone ── */
-@media (max-width: 420px) {
-  .hero h1 {
-    font-size: 2rem;
+  .swipe-btn {
+    width: 100%;
+    justify-content: center;
   }
 
+  .deck-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .deck-arrow-prev {
+    left: 0.4rem;
+  }
+
+  .deck-arrow-next {
+    right: 0.4rem;
+  }
+}
+
+@media (max-width: 420px) {
   .horizon-btn {
     font-size: 0.78rem;
     padding: 0.55rem 0.5rem;
   }
-
-  .byline-links a {
-    display: inline-block;
-    margin-top: 0.25rem;
-  }
 }
 
+/* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  html {
+  .snap-wrap {
     scroll-behavior: auto;
   }
 
@@ -1118,6 +1259,10 @@ body {
   }
 
   .hero-image {
-    opacity: 0.5;
+    opacity: 1;
+  }
+
+  .scroll-cue {
+    opacity: 1;
   }
 }

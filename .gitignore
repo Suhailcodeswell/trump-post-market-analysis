@@ -20,3 +20,5 @@ Thumbs.db
 # but if they ever exceed GitHub limits, uncomment the lines below:
 # data/raw/*.csv
 # data/processed/posts_*.csv
+
+.vercel

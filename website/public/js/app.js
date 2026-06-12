@@ -1,6 +1,7 @@
 /**
- * Trump Post Market Analysis: tab navigation, scroll reveals,
- * and the featured-event investment calculator.
+ * Trump Post Market Analysis.
+ * Two-screen layout: hero, then a horizontal tab deck.
+ * Tabs slide left/right; swipe, arrow keys, and edge arrows all work.
  */
 
 const MARKET_LABELS = {
@@ -17,6 +18,7 @@ const CONTACT = {
   github: "https://github.com/Suhailcodeswell/trump-post-market-analysis",
 };
 
+const TAB_ORDER = ["story", "bitcoin", "oil", "sp500", "nasdaq", "invest", "about"];
 const TRANSITION_OUT_MS = 220;
 
 let events = [];
@@ -28,6 +30,10 @@ async function init() {
   applyContactLinks();
   setupTabs();
   setupReveals();
+  setupSnap();
+  setupSwipe();
+  setupKeyboard();
+  updateArrows();
 
   try {
     const [eventsRes, summaryRes] = await Promise.all([
@@ -49,7 +55,7 @@ function applyContactLinks() {
   const map = {
     linkedin: ["hero-linkedin", "about-linkedin", "footer-linkedin"],
     email: ["hero-email", "about-email", "footer-email"],
-    github: ["hero-github", "about-github", "footer-github", "repo-link"],
+    github: ["hero-github", "about-github", "footer-github"],
   };
   Object.entries(map).forEach(([key, ids]) => {
     ids.forEach((id) => {
@@ -59,46 +65,90 @@ function applyContactLinks() {
   });
 }
 
-/* ── Tabs ── */
+/* ── Snap scroll between hero and deck ── */
+
+function scrollToDeck() {
+  document.getElementById("deck").scrollIntoView({ behavior: "smooth" });
+}
+
+function scrollToTop() {
+  document.getElementById("top").scrollIntoView({ behavior: "smooth" });
+}
+
+function setupSnap() {
+  document.getElementById("scroll-cue").addEventListener("click", scrollToDeck);
+  document.getElementById("brand-link").addEventListener("click", (e) => {
+    e.preventDefault();
+    scrollToTop();
+  });
+}
+
+/* ── Tabs with directional slides ── */
+
+function currentTabId() {
+  const active = document.querySelector(".panel.active");
+  return active ? active.id : TAB_ORDER[0];
+}
 
 function setupTabs() {
-  const tabs = document.querySelectorAll(".nav-tab");
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => switchTab(tab.dataset.tab));
+  document.querySelectorAll(".nav-tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      scrollToDeck();
+      switchTab(tab.dataset.tab);
+    });
   });
 
   document.querySelectorAll("[data-tab-link]").forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
+      scrollToDeck();
       switchTab(el.dataset.tabLink);
     });
   });
 
+  document.getElementById("deck-prev").addEventListener("click", () => step(-1));
+  document.getElementById("deck-next").addEventListener("click", () => step(1));
+
   const initial = location.hash.replace("#", "");
-  if (initial && document.getElementById(initial)) {
-    showPanel(initial);
+  if (initial && TAB_ORDER.includes(initial)) {
+    showPanel(initial, null);
+    requestAnimationFrame(() => {
+      document.getElementById("deck").scrollIntoView({ behavior: "instant" });
+    });
   }
 }
 
-function switchTab(id) {
-  const next = document.getElementById(id);
-  const current = document.querySelector(".panel.active");
-  if (!next || switching || next === current) return;
+function step(direction) {
+  const idx = TAB_ORDER.indexOf(currentTabId());
+  const next = TAB_ORDER[idx + direction];
+  if (next) switchTab(next);
+}
 
+function switchTab(id) {
+  const current = currentTabId();
+  if (switching || id === current || !TAB_ORDER.includes(id)) return;
+
+  const goingRight = TAB_ORDER.indexOf(id) > TAB_ORDER.indexOf(current);
   switching = true;
+
   const container = document.getElementById("panels");
-  container.classList.add("leaving");
+  container.classList.add(goingRight ? "leaving-left" : "leaving-right");
 
   setTimeout(() => {
-    container.classList.remove("leaving");
-    showPanel(id);
+    container.classList.remove("leaving-left", "leaving-right");
+    showPanel(id, goingRight ? "from-right" : "from-left");
     switching = false;
   }, TRANSITION_OUT_MS);
 }
 
-function showPanel(id) {
+function showPanel(id, slideClass) {
   document.querySelectorAll(".panel").forEach((p) => {
-    p.classList.toggle("active", p.id === id);
+    p.classList.remove("active", "from-right", "from-left");
+    if (p.id === id) {
+      p.classList.add("active");
+      if (slideClass) p.classList.add(slideClass);
+      p.scrollTop = 0;
+    }
   });
   document.querySelectorAll(".nav-tab").forEach((t) => {
     const isActive = t.dataset.tab === id;
@@ -106,8 +156,60 @@ function showPanel(id) {
     t.setAttribute("aria-selected", String(isActive));
   });
   history.replaceState(null, "", `#${id}`);
-  window.scrollTo({ top: 0, behavior: "instant" });
+  updateArrows();
   refreshReveals();
+}
+
+function updateArrows() {
+  const idx = TAB_ORDER.indexOf(currentTabId());
+  document.getElementById("deck-prev").toggleAttribute("disabled", idx <= 0);
+  document
+    .getElementById("deck-next")
+    .toggleAttribute("disabled", idx >= TAB_ORDER.length - 1);
+}
+
+/* ── Swipe gestures ── */
+
+function setupSwipe() {
+  const panels = document.getElementById("panels");
+  let startX = 0;
+  let startY = 0;
+  let tracking = false;
+
+  panels.addEventListener(
+    "touchstart",
+    (e) => {
+      if (e.touches.length !== 1) return;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      tracking = true;
+    },
+    { passive: true }
+  );
+
+  panels.addEventListener(
+    "touchend",
+    (e) => {
+      if (!tracking) return;
+      tracking = false;
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        step(dx < 0 ? 1 : -1);
+      }
+    },
+    { passive: true }
+  );
+}
+
+/* ── Keyboard navigation ── */
+
+function setupKeyboard() {
+  document.addEventListener("keydown", (e) => {
+    if (e.target.matches("input, select, textarea")) return;
+    if (e.key === "ArrowRight") step(1);
+    if (e.key === "ArrowLeft") step(-1);
+  });
 }
 
 /* ── Scroll reveals ── */
@@ -131,12 +233,11 @@ function setupReveals() {
 }
 
 function refreshReveals() {
-  // Elements near the top of a freshly opened panel should appear immediately.
   const active = document.querySelector(".panel.active");
   if (!active) return;
   active.querySelectorAll(".reveal:not(.in)").forEach((el) => {
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.92) {
+    if (rect.top < window.innerHeight * 0.95) {
       el.classList.add("in");
       revealObserver.unobserve(el);
     }
@@ -247,7 +348,7 @@ function setupCalculator() {
     `;
 
     resultEl.classList.remove("refresh");
-    void resultEl.offsetWidth; // restart the entrance animation
+    void resultEl.offsetWidth;
     resultEl.classList.add("refresh");
   }
 
