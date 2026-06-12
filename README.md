@@ -1,9 +1,9 @@
-# Trump Social Media & The Markets — An Event Study
+# Trump Social Media & The Markets: An Event Study
 
 > **Do Donald Trump's social media posts move financial markets?**
 > A data pipeline that analyses **73,380 cleaned posts (2009–2025)**, scores their
 > sentiment, and runs an **event study** measuring what Bitcoin, the S&P 500, Nasdaq,
-> and the market did *after* he posted — including an interactive "what if I'd invested
+> and the market did *after* he posted, including an interactive "what if I'd invested
 > $100,000" calculator.
 
 **Skills demonstrated:** Python data engineering · NLP sentiment analysis · SQL star-schema
@@ -20,26 +20,26 @@ commentary as Donald Trump. This project asks a concrete, testable question:
 what does that market do over the following day, week, and month?**
 
 Rather than a vague "sentiment vs. market" correlation, it uses a **topic-specific event
-study** — the approach that actually surfaces signal.
+study**, the approach that actually surfaces signal.
 
 ## Methodology
 
-1. **Clean** (`scripts/01_clean_data.py`) — 90,343 → 73,380 posts. Removes deleted posts,
+1. **Clean** (`scripts/01_clean_data.py`): 90,343 → 73,380 posts. Removes deleted posts,
    pure reposts, and empty text so only Trump's own words are analysed.
-2. **Sentiment** (`scripts/02_sentiment_vader.py`) — VADER scores each post −1.0 … +1.0.
+2. **Sentiment** (`scripts/02_sentiment_vader.py`): VADER scores each post −1.0 … +1.0.
    *Scored before any market data is examined, to avoid bias.*
-3. **Market data** (`scripts/03_market_data.py`) — daily prices for S&P 500, Nasdaq, Dow,
+3. **Market data** (`scripts/03_market_data.py`): daily prices for S&P 500, Nasdaq, Dow,
    VIX, and Bitcoin via Yahoo Finance; computes daily returns and 7-day volatility.
-4. **Topic tagging** (`scripts/05_topic_tagging.py`) — regex keyword tagging by topic.
-5. **Event study + investor calculator** (`scripts/06_event_study.py`) — for each
+4. **Topic tagging** (`scripts/05_topic_tagging.py`): regex keyword tagging by topic.
+5. **Event study + investor calculator** (`scripts/06_event_study.py`): for each
    posting-day event, measures forward returns at +1d / +1w / +1m and the average outcome
    of a $100,000 investment.
-6. **SQL layer** (`sql_queries/`, `scripts/07_build_sql_db.py`) — a PostgreSQL star schema
+6. **SQL layer** (`sql_queries/`, `scripts/07_build_sql_db.py`): a PostgreSQL star schema
    (Fact_Posts, Fact_Market, Dim_Date, Dim_Platform) with window-function and `CORR()`
    queries, verified in DuckDB.
-7. **Dashboard** (`scripts/08_build_dashboard.py`) — an interactive web dashboard
+7. **Dashboard** (`scripts/08_build_dashboard.py`): an interactive web dashboard
    (`dashboard/index.html`).
-8. **Portfolio website** (`website/public/`) — minimal white Vercel site with Power BI
+8. **Portfolio website** (`website/public/`): minimal white Vercel site with Power BI
    chart exports, narrative sections, and an investment calculator.
 
 ## Key Findings
@@ -55,9 +55,9 @@ Average outcome of **$100,000 invested on every event** (all events, no cherry-p
 
 - **Equities tend to drift up** in the month after Trump posts about them (Nasdaq rose
   79% of the time).
-- **Bitcoin behaves oppositely** — it dips ~2% in the week after his (very positive) crypto
-  posts before recovering: a "buy the rumor, sell the news" pattern.
-- **Aggregate daily sentiment alone shows almost no correlation** with returns — confirming
+- **Bitcoin behaves oppositely**: it dips ~2% in the week after his (very positive) crypto
+  posts before recovering, a "buy the rumor, sell the news" pattern.
+- **Aggregate daily sentiment alone shows almost no correlation** with returns, confirming
   that the signal lives in *specific events*, not the daily average.
 
 > **Honesty note:** these are *associations, not proof of causation*. Other news and macro

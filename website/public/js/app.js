@@ -1,5 +1,6 @@
 /**
- * Trump Post Market Analysis — client-side interactivity
+ * Trump Post Market Analysis: tab navigation, scroll reveals,
+ * and the featured-event investment calculator.
  */
 
 const MARKET_LABELS = {
@@ -9,11 +10,17 @@ const MARKET_LABELS = {
   nasdaq: "Nasdaq",
 };
 
+const TRANSITION_OUT_MS = 220;
+
 let events = [];
 let summary = [];
 let activeHorizon = "1w";
+let switching = false;
 
 async function init() {
+  setupTabs();
+  setupReveals();
+
   try {
     const [eventsRes, summaryRes] = await Promise.all([
       fetch("/data/events.json"),
@@ -27,9 +34,94 @@ async function init() {
   }
 
   renderStats();
-  setupNav();
   setupCalculator();
 }
+
+/* ── Tabs ── */
+
+function setupTabs() {
+  const tabs = document.querySelectorAll(".nav-tab");
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => switchTab(tab.dataset.tab));
+  });
+
+  document.querySelectorAll("[data-tab-link]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      switchTab(el.dataset.tabLink);
+    });
+  });
+
+  const initial = location.hash.replace("#", "");
+  if (initial && document.getElementById(initial)) {
+    showPanel(initial);
+  }
+}
+
+function switchTab(id) {
+  const next = document.getElementById(id);
+  const current = document.querySelector(".panel.active");
+  if (!next || switching || next === current) return;
+
+  switching = true;
+  const container = document.getElementById("panels");
+  container.classList.add("leaving");
+
+  setTimeout(() => {
+    container.classList.remove("leaving");
+    showPanel(id);
+    switching = false;
+  }, TRANSITION_OUT_MS);
+}
+
+function showPanel(id) {
+  document.querySelectorAll(".panel").forEach((p) => {
+    p.classList.toggle("active", p.id === id);
+  });
+  document.querySelectorAll(".nav-tab").forEach((t) => {
+    const isActive = t.dataset.tab === id;
+    t.classList.toggle("active", isActive);
+    t.setAttribute("aria-selected", String(isActive));
+  });
+  history.replaceState(null, "", `#${id}`);
+  window.scrollTo({ top: 0, behavior: "instant" });
+  refreshReveals();
+}
+
+/* ── Scroll reveals ── */
+
+let revealObserver;
+
+function setupReveals() {
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
+  );
+
+  document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+}
+
+function refreshReveals() {
+  // Elements near the top of a freshly opened panel should appear immediately.
+  const active = document.querySelector(".panel.active");
+  if (!active) return;
+  active.querySelectorAll(".reveal:not(.in)").forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.92) {
+      el.classList.add("in");
+      revealObserver.unobserve(el);
+    }
+  });
+}
+
+/* ── Stats ── */
 
 function renderStats() {
   const configs = [
@@ -65,30 +157,7 @@ function renderStats() {
   });
 }
 
-function setupNav() {
-  const links = document.querySelectorAll(".nav-links a");
-  const sections = [...links].map((a) =>
-    document.querySelector(a.getAttribute("href"))
-  );
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          links.forEach((link) => {
-            link.classList.toggle(
-              "active",
-              link.getAttribute("href") === `#${entry.target.id}`
-            );
-          });
-        }
-      });
-    },
-    { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
-  );
-
-  sections.forEach((sec) => sec && observer.observe(sec));
-}
+/* ── Calculator ── */
 
 function setupCalculator() {
   const marketSelect = document.getElementById("calc-market");
@@ -100,10 +169,7 @@ function setupCalculator() {
     const market = marketSelect.value;
     const filtered = events.filter((e) => e.market === market);
     eventSelect.innerHTML = filtered
-      .map(
-        (e) =>
-          `<option value="${e.id}">${e.date} — ${e.title}</option>`
-      )
+      .map((e) => `<option value="${e.id}">${e.date} · ${e.title}</option>`)
       .join("");
     if (filtered.length === 0) {
       eventSelect.innerHTML =
@@ -157,6 +223,10 @@ function setupCalculator() {
         Other news and macro factors were active on ${ev.date}.
       </p>
     `;
+
+    resultEl.classList.remove("refresh");
+    void resultEl.offsetWidth; // restart the entrance animation
+    resultEl.classList.add("refresh");
   }
 
   marketSelect.addEventListener("change", populateEvents);
