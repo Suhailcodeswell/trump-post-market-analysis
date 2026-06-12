@@ -281,14 +281,18 @@ body {
 }
 
 .byline-links {
-  margin-left: 0.5rem;
+  margin-left: 0.1rem;
+}
+
+.byline-dot {
+  color: var(--text-muted);
+  margin: 0 0.45rem;
 }
 
 .byline-links a {
   color: var(--accent-light);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  margin-right: 0.85rem;
   transition: border-color 0.2s;
 }
 
