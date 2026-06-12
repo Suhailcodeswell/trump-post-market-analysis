@@ -12,8 +12,8 @@ const MARKET_LABELS = {
 
 // Update these three values once; every link on the site reads from here.
 const CONTACT = {
-  linkedin: "#", // e.g. https://www.linkedin.com/in/your-handle
-  email: "#", // e.g. mailto:you@gmail.com
+  linkedin: "https://www.linkedin.com/in/suhail-ahmed-b75301232",
+  email: "mailto:suhailahmedprof@gmail.com",
   github: "https://github.com/Suhailcodeswell/trump-post-market-analysis",
 };
 
