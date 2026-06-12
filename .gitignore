@@ -1,0 +1,22 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local SQL database build
+data/processed/trump_market.duckdb
+
+# Optional: ignore very large pbix if GitHub rejects (uncomment if needed)
+# powerbi/reports/*.pbix
+
+# Old web dashboard (optional — not primary deliverable)
+# dashboard/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Keep the raw dataset and processed CSVs so the repo is reproducible,
+# but if they ever exceed GitHub limits, uncomment the lines below:
+# data/raw/*.csv
+# data/processed/posts_*.csv

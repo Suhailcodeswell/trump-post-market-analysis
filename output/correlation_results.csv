@@ -1,0 +1,3 @@
+instrument,n_days,corr_sentiment_vs_return_sameday,p_return_sameday,corr_sentiment_vs_volatility,p_volatility,corr_sentiment_vs_return_nextday,p_return_nextday
+sp500,3520,0.0005,0.9749,-0.0362,0.0319,-0.0063,0.7069
+bitcoin,3618,-0.0074,0.6563,0.095,0.0,-0.0192,0.2471

@@ -1,0 +1,124 @@
+topic,topic_display,instrument,presidency_era,horizon,n_events,mean_return_pct,median_return_pct,win_rate_pct,best_return_pct,worst_return_pct,avg_value_of_100k
+bitcoin,Bitcoin,bitcoin,Not President (2021–2024),1d,14,0.026,0.067,57.1,4.21,-3.94,100026.0
+bitcoin,Bitcoin,bitcoin,Not President (2021–2024),1w,14,-0.85,-0.498,50.0,8.28,-14.84,99149.97
+bitcoin,Bitcoin,bitcoin,Not President (2021–2024),1m,14,3.643,2.92,50.0,37.36,-15.15,103642.81
+bitcoin,Bitcoin,bitcoin,President — 1st Term (2017–2021),1d,1,-3.585,-3.585,0.0,-3.58,-3.58,96414.96
+bitcoin,Bitcoin,bitcoin,President — 1st Term (2017–2021),1w,1,-10.877,-10.877,0.0,-10.88,-10.88,89122.75
+bitcoin,Bitcoin,bitcoin,President — 1st Term (2017–2021),1m,1,-2.475,-2.475,0.0,-2.47,-2.47,97525.33
+bitcoin,Bitcoin,bitcoin,President — 2nd Term (2025+),1d,13,-1.073,-0.054,46.2,2.18,-8.68,98927.1
+bitcoin,Bitcoin,bitcoin,President — 2nd Term (2025+),1w,13,-2.131,0.006,53.8,2.85,-14.48,97869.43
+bitcoin,Bitcoin,bitcoin,President — 2nd Term (2025+),1m,13,-1.377,-1.431,30.8,12.66,-9.63,98622.72
+dow,Dow Jones,dow,Not President (2021–2024),1d,1,0.595,0.595,100.0,0.59,0.59,100594.8
+dow,Dow Jones,dow,Not President (2021–2024),1w,1,-1.456,-1.456,0.0,-1.46,-1.46,98543.77
+dow,Dow Jones,dow,Not President (2021–2024),1m,1,-0.956,-0.956,0.0,-0.96,-0.96,99044.25
+dow,Dow Jones,dow,Not President (Pre-2017),1d,1,-0.005,-0.005,0.0,-0.01,-0.01,99994.92
+dow,Dow Jones,dow,Not President (Pre-2017),1w,1,-0.186,-0.186,0.0,-0.19,-0.19,99814.23
+dow,Dow Jones,dow,Not President (Pre-2017),1m,1,3.139,3.139,100.0,3.14,3.14,103139.34
+dow,Dow Jones,dow,President — 1st Term (2017–2021),1d,13,-0.039,0.0,46.2,1.05,-2.78,99960.64
+dow,Dow Jones,dow,President — 1st Term (2017–2021),1w,13,-0.028,-0.038,38.5,3.02,-3.99,99971.87
+dow,Dow Jones,dow,President — 1st Term (2017–2021),1m,13,-1.282,1.663,61.5,5.34,-27.58,98718.34
+fed_rates,Fed & Interest Rates,sp500,Not President (2021–2024),1d,198,0.119,0.0,41.9,2.53,-3.88,100118.9
+fed_rates,Fed & Interest Rates,sp500,Not President (2021–2024),1w,198,0.321,0.516,59.6,6.45,-9.02,100321.35
+fed_rates,Fed & Interest Rates,sp500,Not President (2021–2024),1m,198,1.899,2.889,75.8,13.37,-12.12,101899.4
+fed_rates,Fed & Interest Rates,sp500,Not President (Pre-2017),1d,31,0.302,0.161,58.1,4.63,-2.5,100301.96
+fed_rates,Fed & Interest Rates,sp500,Not President (Pre-2017),1w,31,0.403,0.322,61.3,6.52,-1.9,100403.47
+fed_rates,Fed & Interest Rates,sp500,Not President (Pre-2017),1m,31,1.099,2.022,58.1,8.01,-7.37,101099.25
+fed_rates,Fed & Interest Rates,sp500,President — 1st Term (2017–2021),1d,83,-0.088,0.009,51.8,4.96,-11.98,99912.17
+fed_rates,Fed & Interest Rates,sp500,President — 1st Term (2017–2021),1w,83,-0.148,0.574,65.1,6.62,-14.98,99852.29
+fed_rates,Fed & Interest Rates,sp500,President — 1st Term (2017–2021),1m,83,0.181,1.971,65.1,12.68,-28.85,100180.98
+fed_rates,Fed & Interest Rates,sp500,President — 2nd Term (2025+),1d,76,0.159,0.0,48.7,3.26,-2.36,100159.18
+fed_rates,Fed & Interest Rates,sp500,President — 2nd Term (2025+),1w,73,1.029,0.829,74.0,7.18,-2.7,101028.55
+fed_rates,Fed & Interest Rates,sp500,President — 2nd Term (2025+),1m,69,1.833,2.015,76.8,13.31,-9.84,101832.65
+gold,Gold,gold,Not President (2021–2024),1d,24,0.008,0.0,33.3,1.17,-2.26,100007.64
+gold,Gold,gold,Not President (2021–2024),1w,24,0.507,0.689,66.7,4.05,-4.52,100506.75
+gold,Gold,gold,Not President (2021–2024),1m,24,2.562,2.921,79.2,9.51,-4.99,102561.87
+gold,Gold,gold,Not President (Pre-2017),1d,48,0.074,0.0,45.8,1.58,-1.47,100073.92
+gold,Gold,gold,Not President (Pre-2017),1w,48,0.306,0.594,52.1,5.01,-5.65,100306.01
+gold,Gold,gold,Not President (Pre-2017),1m,48,0.001,-0.593,45.8,12.5,-11.95,100000.82
+gold,Gold,gold,President — 1st Term (2017–2021),1d,10,0.017,0.0,30.0,0.75,-0.64,100017.32
+gold,Gold,gold,President — 1st Term (2017–2021),1w,10,0.353,0.278,50.0,3.46,-3.1,100352.8
+gold,Gold,gold,President — 1st Term (2017–2021),1m,10,0.002,0.558,60.0,1.79,-3.3,100002.02
+gold,Gold,gold,President — 2nd Term (2025+),1d,12,0.32,0.0,41.7,2.12,-0.89,100319.94
+gold,Gold,gold,President — 2nd Term (2025+),1w,12,0.693,1.355,50.0,5.71,-5.02,100693.46
+gold,Gold,gold,President — 2nd Term (2025+),1m,10,4.154,3.942,70.0,18.11,-3.7,104153.67
+iran_geopolitics,Iran & Geopolitics,oil,Not President (2021–2024),1d,56,0.086,0.0,28.6,5.77,-3.6,100086.48
+iran_geopolitics,Iran & Geopolitics,oil,Not President (2021–2024),1w,56,0.23,0.324,51.8,13.16,-10.89,100230.08
+iran_geopolitics,Iran & Geopolitics,oil,Not President (2021–2024),1m,56,-0.382,-0.984,46.4,17.03,-17.87,99618.27
+iran_geopolitics,Iran & Geopolitics,oil,Not President (Pre-2017),1d,168,-0.082,0.0,42.9,6.1,-7.73,99917.54
+iran_geopolitics,Iran & Geopolitics,oil,Not President (Pre-2017),1w,168,-0.357,-0.306,46.4,13.4,-14.55,99642.69
+iran_geopolitics,Iran & Geopolitics,oil,Not President (Pre-2017),1m,168,-1.043,-0.956,42.3,25.27,-26.31,98956.75
+iran_geopolitics,Iran & Geopolitics,oil,President — 1st Term (2017–2021),1d,110,0.591,0.0,40.0,24.67,-5.66,100591.14
+iran_geopolitics,Iran & Geopolitics,oil,President — 1st Term (2017–2021),1w,110,-0.049,0.33,57.3,23.54,-12.44,99951.02
+iran_geopolitics,Iran & Geopolitics,oil,President — 1st Term (2017–2021),1m,110,-0.525,-0.031,49.1,141.29,-57.91,99475.36
+iran_geopolitics,Iran & Geopolitics,oil,President — 2nd Term (2025+),1d,47,-0.129,0.0,34.0,7.26,-8.57,99871.48
+iran_geopolitics,Iran & Geopolitics,oil,President — 2nd Term (2025+),1w,47,-0.934,0.328,53.2,10.13,-15.08,99066.4
+iran_geopolitics,Iran & Geopolitics,oil,President — 2nd Term (2025+),1m,47,-2.038,-2.536,34.0,16.47,-18.56,97961.59
+israel_mideast,Israel & Middle East,sp500,Not President (2021–2024),1d,127,0.019,0.0,40.2,1.89,-2.31,100018.67
+israel_mideast,Israel & Middle East,sp500,Not President (2021–2024),1w,127,0.449,0.49,63.0,5.85,-5.85,100448.9
+israel_mideast,Israel & Middle East,sp500,Not President (2021–2024),1m,127,2.682,2.804,82.7,10.52,-3.92,102681.51
+israel_mideast,Israel & Middle East,sp500,Not President (Pre-2017),1d,127,0.216,0.047,53.5,4.63,-3.19,100216.25
+israel_mideast,Israel & Middle East,sp500,Not President (Pre-2017),1w,127,0.011,0.289,58.3,7.68,-6.54,100011.21
+israel_mideast,Israel & Middle East,sp500,Not President (Pre-2017),1m,127,0.659,1.362,60.6,8.25,-17.27,100658.83
+israel_mideast,Israel & Middle East,sp500,President — 1st Term (2017–2021),1d,110,0.08,0.0,44.5,2.62,-2.78,100080.08
+israel_mideast,Israel & Middle East,sp500,President — 1st Term (2017–2021),1w,110,0.394,0.628,64.5,7.26,-5.64,100393.56
+israel_mideast,Israel & Middle East,sp500,President — 1st Term (2017–2021),1m,110,1.855,2.296,78.2,9.41,-10.69,101854.64
+israel_mideast,Israel & Middle East,sp500,President — 2nd Term (2025+),1d,84,0.083,0.0,40.5,1.67,-2.71,100083.07
+israel_mideast,Israel & Middle East,sp500,President — 2nd Term (2025+),1w,84,0.303,0.555,61.9,5.16,-11.54,100303.49
+israel_mideast,Israel & Middle East,sp500,President — 2nd Term (2025+),1m,81,0.712,1.445,72.8,10.48,-13.15,100711.96
+nasdaq,Nasdaq,nasdaq,Not President (2021–2024),1d,20,0.021,0.0,35.0,2.69,-1.93,100020.83
+nasdaq,Nasdaq,nasdaq,Not President (2021–2024),1w,20,-0.083,-0.212,50.0,3.17,-3.99,99916.66
+nasdaq,Nasdaq,nasdaq,Not President (2021–2024),1m,20,0.985,1.46,55.0,8.9,-9.38,100984.77
+nasdaq,Nasdaq,nasdaq,President — 1st Term (2017–2021),1d,40,0.027,0.04,50.0,2.71,-5.27,100026.93
+nasdaq,Nasdaq,nasdaq,President — 1st Term (2017–2021),1w,40,0.633,0.429,60.0,6.9,-3.53,100633.27
+nasdaq,Nasdaq,nasdaq,President — 1st Term (2017–2021),1m,40,3.874,3.821,92.5,12.7,-4.62,103873.87
+nasdaq,Nasdaq,nasdaq,President — 2nd Term (2025+),1d,14,-0.274,0.0,35.7,1.51,-3.07,99726.1
+nasdaq,Nasdaq,nasdaq,President — 2nd Term (2025+),1w,14,-1.186,-0.634,42.9,1.97,-5.71,98814.11
+nasdaq,Nasdaq,nasdaq,President — 2nd Term (2025+),1m,13,3.651,3.658,76.9,13.76,-10.29,103650.93
+oil_energy,Oil & Energy,oil,Not President (2021–2024),1d,68,-0.311,-0.261,25.0,5.96,-4.31,99689.0
+oil_energy,Oil & Energy,oil,Not President (2021–2024),1w,68,-0.59,-0.712,45.6,12.67,-10.52,99409.75
+oil_energy,Oil & Energy,oil,Not President (2021–2024),1m,68,-2.55,-2.521,36.8,21.8,-21.55,97450.08
+oil_energy,Oil & Energy,oil,Not President (Pre-2017),1d,211,-0.111,0.0,46.0,6.1,-6.41,99889.38
+oil_energy,Oil & Energy,oil,Not President (Pre-2017),1w,211,-0.47,-0.475,42.7,12.3,-14.55,99529.55
+oil_energy,Oil & Energy,oil,Not President (Pre-2017),1m,211,-1.711,-2.206,40.3,19.92,-22.8,98288.72
+oil_energy,Oil & Energy,oil,President — 1st Term (2017–2021),1d,66,0.281,0.0,36.4,37.66,-10.26,100281.05
+oil_energy,Oil & Energy,oil,President — 1st Term (2017–2021),1w,66,-7.535,0.996,54.5,26.07,-267.92,92465.42
+oil_energy,Oil & Energy,oil,President — 1st Term (2017–2021),1m,66,5.37,3.03,57.6,238.86,-43.45,105370.46
+oil_energy,Oil & Energy,oil,President — 2nd Term (2025+),1d,60,0.08,0.0,43.3,5.62,-6.04,100080.04
+oil_energy,Oil & Energy,oil,President — 2nd Term (2025+),1w,60,-0.29,-0.598,45.0,13.01,-16.32,99709.55
+oil_energy,Oil & Energy,oil,President — 2nd Term (2025+),1m,55,-1.409,-1.863,34.5,11.34,-16.8,98590.53
+sp500,S&P 500,sp500,Not President (2021–2024),1d,62,0.11,0.0,33.9,3.09,-1.16,100109.74
+sp500,S&P 500,sp500,Not President (2021–2024),1w,62,0.35,0.355,54.8,4.78,-5.33,100349.81
+sp500,S&P 500,sp500,Not President (2021–2024),1m,62,0.959,1.542,64.5,9.21,-9.2,100959.25
+sp500,S&P 500,sp500,Not President (Pre-2017),1d,78,-0.176,0.0,39.7,4.74,-4.42,99823.53
+sp500,S&P 500,sp500,Not President (Pre-2017),1w,78,0.433,0.48,61.5,7.6,-6.7,100433.34
+sp500,S&P 500,sp500,Not President (Pre-2017),1m,78,1.44,1.587,73.1,8.43,-6.92,101439.9
+sp500,S&P 500,sp500,President — 1st Term (2017–2021),1d,191,-0.023,0.0,36.6,2.72,-5.89,99976.6
+sp500,S&P 500,sp500,President — 1st Term (2017–2021),1w,191,0.113,0.371,60.7,5.78,-7.97,100112.69
+sp500,S&P 500,sp500,President — 1st Term (2017–2021),1m,191,0.859,1.864,70.7,15.74,-31.93,100858.69
+sp500,S&P 500,sp500,President — 2nd Term (2025+),1d,41,0.046,0.0,41.5,3.26,-5.98,100045.7
+sp500,S&P 500,sp500,President — 2nd Term (2025+),1w,40,0.671,0.898,67.5,5.27,-3.32,100670.98
+sp500,S&P 500,sp500,President — 2nd Term (2025+),1m,38,2.116,2.054,81.6,7.96,-6.3,102116.43
+tariffs_china,Tariffs & China,sp500,Not President (2021–2024),1d,210,0.032,0.0,38.1,2.59,-2.8,100031.78
+tariffs_china,Tariffs & China,sp500,Not President (2021–2024),1w,210,0.111,0.327,57.1,4.84,-9.02,100110.89
+tariffs_china,Tariffs & China,sp500,Not President (2021–2024),1m,210,1.057,1.665,64.3,9.3,-10.81,101056.64
+tariffs_china,Tariffs & China,sp500,Not President (Pre-2017),1d,358,0.031,0.0,48.0,4.33,-4.78,100031.23
+tariffs_china,Tariffs & China,sp500,Not President (Pre-2017),1w,358,0.306,0.505,61.2,7.33,-11.07,100305.79
+tariffs_china,Tariffs & China,sp500,Not President (Pre-2017),1m,358,1.304,1.715,69.0,11.64,-15.26,101304.39
+tariffs_china,Tariffs & China,sp500,President — 1st Term (2017–2021),1d,380,0.109,0.0,41.3,9.38,-5.18,100108.62
+tariffs_china,Tariffs & China,sp500,President — 1st Term (2017–2021),1w,380,0.485,0.624,64.2,17.4,-17.97,100484.68
+tariffs_china,Tariffs & China,sp500,President — 1st Term (2017–2021),1m,380,1.854,2.368,76.8,25.11,-32.97,101854.07
+tariffs_china,Tariffs & China,sp500,President — 2nd Term (2025+),1d,168,0.01,0.0,44.6,9.52,-5.98,100009.81
+tariffs_china,Tariffs & China,sp500,President — 2nd Term (2025+),1w,165,0.299,0.619,63.6,8.31,-11.54,100298.9
+tariffs_china,Tariffs & China,sp500,President — 2nd Term (2025+),1m,156,1.401,1.969,69.9,15.17,-13.15,101400.86
+vix_fear,Market Fear / VIX,vix,Not President (2021–2024),1d,14,-1.236,0.0,42.9,7.99,-28.16,98763.73
+vix_fear,Market Fear / VIX,vix,Not President (2021–2024),1w,14,-1.786,-1.833,42.9,36.82,-46.31,98213.81
+vix_fear,Market Fear / VIX,vix,Not President (2021–2024),1m,14,9.784,6.457,57.1,125.14,-44.72,109784.17
+vix_fear,Market Fear / VIX,vix,Not President (Pre-2017),1d,4,1.48,0.835,50.0,8.36,-4.11,101480.49
+vix_fear,Market Fear / VIX,vix,Not President (Pre-2017),1w,4,4.896,6.161,75.0,7.72,-0.46,104895.72
+vix_fear,Market Fear / VIX,vix,Not President (Pre-2017),1m,4,1.122,4.509,50.0,17.59,-22.12,101121.56
+vix_fear,Market Fear / VIX,vix,President — 1st Term (2017–2021),1d,7,-4.129,0.0,14.3,4.41,-16.68,95871.32
+vix_fear,Market Fear / VIX,vix,President — 1st Term (2017–2021),1w,7,-2.956,-3.912,28.6,7.25,-10.94,97043.84
+vix_fear,Market Fear / VIX,vix,President — 1st Term (2017–2021),1m,7,-6.317,-10.776,14.3,42.31,-28.46,93682.74
+vix_fear,Market Fear / VIX,vix,President — 2nd Term (2025+),1d,4,-5.607,-4.198,0.0,0.0,-14.03,94392.9
+vix_fear,Market Fear / VIX,vix,President — 2nd Term (2025+),1w,4,-7.899,-8.017,25.0,10.1,-25.66,92100.92
+vix_fear,Market Fear / VIX,vix,President — 2nd Term (2025+),1m,3,-4.928,-1.998,33.3,2.96,-15.75,95071.5

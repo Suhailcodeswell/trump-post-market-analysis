@@ -1,0 +1,153 @@
+{
+  "name": "Trump Markets Portfolio",
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.115.json",
+  "dataColors": [
+    "#C9A227",
+    "#4F8CFF",
+    "#E8ECF5",
+    "#3DD68C",
+    "#FF6B6B",
+    "#8B9CC7",
+    "#1A2744",
+    "#F5D76E"
+  ],
+  "background": "#0B1426",
+  "foreground": "#E8ECF5",
+  "tableAccent": "#C9A227",
+  "textClasses": {
+    "callout": {
+      "fontSize": 28,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#E8ECF5"
+    },
+    "title": {
+      "fontSize": 14,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#C9A227"
+    },
+    "header": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI",
+      "color": "#8B9CC7"
+    },
+    "label": {
+      "fontSize": 11,
+      "fontFace": "Segoe UI",
+      "color": "#8B9CC7"
+    }
+  },
+  "visualStyles": {
+    "card": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#111827" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "color": { "solid": { "color": "#243049" } },
+            "show": true,
+            "radius": 8
+          }
+        ],
+        "labels": [
+          {
+            "color": { "solid": { "color": "#4F8CFF" } },
+            "fontSize": 28,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ],
+        "categoryLabels": [
+          {
+            "color": { "solid": { "color": "#8B9CC7" } },
+            "fontSize": 10,
+            "show": true
+          }
+        ]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#111827" } }
+          }
+        ],
+        "grid": [
+          {
+            "gridVertical": true,
+            "gridVerticalColor": { "solid": { "color": "#243049" } },
+            "gridHorizontal": true,
+            "gridHorizontalColor": { "solid": { "color": "#243049" } }
+          }
+        ],
+        "columnHeaders": [
+          {
+            "fontColor": { "solid": { "color": "#C9A227" } },
+            "backColor": { "solid": { "color": "#1A2744" } },
+            "fontSize": 11
+          }
+        ],
+        "values": [
+          {
+            "fontColorPrimary": { "solid": { "color": "#E8ECF5" } },
+            "fontColorSecondary": { "solid": { "color": "#8B9CC7" } },
+            "backColorPrimary": { "solid": { "color": "#111827" } },
+            "backColorSecondary": { "solid": { "color": "#0B1426" } }
+          }
+        ]
+      }
+    },
+    "clusteredBarChart": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#111827" } }
+          }
+        ],
+        "labels": [
+          {
+            "color": { "solid": { "color": "#E8ECF5" } }
+          }
+        ]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#111827" } }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": { "solid": { "color": "#8B9CC7" } }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": { "solid": { "color": "#8B9CC7" } },
+            "gridlineColor": { "solid": { "color": "#243049" } }
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#0B1426" } },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": { "solid": { "color": "#080C18" } }
+          }
+        ]
+      }
+    }
+  }
+}

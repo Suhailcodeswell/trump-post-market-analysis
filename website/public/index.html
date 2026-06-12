@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Do Donald Trump's social media posts move Bitcoin, oil, the S&P 500, and Nasdaq? An event-study analysis with Power BI and Python.">
+  <title>Trump Posts &amp; Financial Markets — Event Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Main">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#overview">Trump &amp; Markets</a>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#bitcoin">Bitcoin</a>
+        <a href="#oil">Oil</a>
+        <a href="#sp500">S&amp;P 500</a>
+        <a href="#nasdaq">Nasdaq</a>
+        <a href="#invest">Invest</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero / Overview ── -->
+  <header class="hero" id="overview">
+    <img class="hero-image" src="/assets/trump-hero.webp" alt="" aria-hidden="true">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Portfolio Project · Event Study</p>
+      <h1>Does what Trump says affect financial markets?</h1>
+      <p class="hero-lead">
+        Over two decades, Donald Trump has been one of the most watched figures in global
+        finance — not as a trader, but as a source of sudden, market-moving commentary.
+      </p>
+      <div class="hero-body">
+        <p>
+          From Twitter posts about Bitcoin to warnings on Iran and tariff announcements,
+          his words often arrive in real time while markets are open. The question is not
+          whether people <em>react</em> — it is whether there is a repeatable pattern worth
+          studying, and whether that pattern can be understood well enough to act on.
+        </p>
+        <p>
+          This analysis focuses on Trump's posting patterns and how they align with moves in
+          Bitcoin, crude oil, the S&amp;P 500, and the Nasdaq. It asks: does he move these
+          markets, by how much, and over what horizon — and is there any practical way to
+          capitalize on that timing?
+        </p>
+        <p class="disclaimer">
+          Important: this is an association study, not proof of causation. Trump is rarely
+          the only factor — especially for oil and broad equities. Results are for research
+          and portfolio demonstration, not financial advice.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Bitcoin ── -->
+  <section class="section" id="bitcoin">
+    <div class="section-inner">
+      <p class="section-label">Market 01</p>
+      <h2>Bitcoin</h2>
+      <div class="section-intro">
+        <p>
+          Bitcoin is the largest cryptocurrency by market cap — volatile, globally traded,
+          and increasingly tied to policy rhetoric around digital assets. Trump's relationship
+          with crypto has shifted dramatically: from calling it "based on thin air" in 2019
+          to pledging a U.S. crypto reserve in 2025.
+        </p>
+        <p>
+          We identified <strong>28 Bitcoin-related posting events</strong> in the dataset.
+          On average, Bitcoin does not reliably follow Trump's tone — macro cycles, ETF flows,
+          and halving events dominate. Trump is a <em>small</em> factor in the long run, but
+          individual posts can coincide with sharp short-term moves.
+        </p>
+      </div>
+
+      <div class="stats-row" id="bitcoin-stats"></div>
+
+      <article class="chart-block">
+        <p class="chart-caption">
+          <strong>Context:</strong> Bitcoin's full price history from 2009 through 2025.
+          The asset spent years near zero before explosive growth — any event study must be
+          read against this backdrop, not in isolation.
+        </p>
+        <figure class="chart-frame">
+          <img src="/assets/charts/slide-01.png" alt="Bitcoin price line chart from 2009 to 2025" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="chart-block">
+        <p class="chart-caption">
+          <strong>Positive case — Oct 31, 2024:</strong> Trump posted about Bitcoin's
+          anniversary and ending the "war on crypto." One month later, Bitcoin was up
+          <strong>+37.4%</strong> on a $100k hypothetical entry — one of the strongest
+          forward returns in the dataset. Still, the 2024–25 bull market was already underway.
+        </p>
+        <figure class="chart-frame">
+          <img src="/assets/charts/slide-02.png" alt="Bitcoin chart around October 31 2024 Trump post" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="chart-block">
+        <p class="chart-caption">
+          <strong>Negative case — Jul 12, 2019:</strong> "I am not a fan of Bitcoin…"
+          Bitcoin fell <strong>−10.9%</strong> within one week. This is often cited as
+          evidence Trump moves crypto — but 2019 was also a period of regulatory uncertainty
+          independent of any single tweet.
+        </p>
+        <figure class="chart-frame">
+          <img src="/assets/charts/slide-03.png" alt="Bitcoin chart around July 12 2019 anti-crypto Trump post" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="chart-block">
+        <p class="chart-caption">
+          <strong>Outlier — Mar 2, 2025:</strong> A U.S. Crypto Reserve announcement.
+          Despite positive sentiment, Bitcoin dropped sharply in the following week
+          (−14.5%) — a reminder that "good news" posts do not always produce immediate
+          gains. Markets often price policy before the post lands.
+        </p>
+        <figure class="chart-frame">
+          <img src="/assets/charts/slide-04.png" alt="Bitcoin chart around March 2 2025 crypto reserve post" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="chart-block">
+        <p class="chart-caption">
+          <strong>In office vs. not:</strong> Average one-week returns after Bitcoin posts
+          differ by presidency era. Being in office does not automatically mean stronger
+          moves — context and market regime matter more than the title on the post.
+        </p>
+        <figure class="chart-frame">
+          <img src="/assets/charts/slide-05.png" alt="Bar chart comparing Bitcoin returns when Trump was in office versus not" loading="lazy">
+        </figure>
+        <p class="chart-note">Source: Power BI report — event study on 73,380 cleaned posts (2009–2025).</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── Oil ── -->
+  <section class="section" id="oil">
+    <div class="section-inner">
+      <p class="section-label">Market 02</p>
+      <h2>Oil</h2>
+      <div class="section-intro">
+        <p>
+          Crude oil is among the most geopolitically sensitive commodities on earth. War,
+          OPEC supply decisions, inventory data, and global demand shifts routinely move
+          prices by more than any social media post ever could.
+        </p>
+        <p>
+          Trump posts about Iran and energy <strong>705 times</strong> in our tagged dataset —
+          yet the average one-week return is slightly negative. Trump is an
+          <em>insignificant factor</em> in the aggregate; we study patterns anyway because
+          timing around crises (e.g. June 2025 Iran diplomacy) can still be informative.
+        </p>
+      </div>
+
+      <div class="stats-row" id="oil-stats"></div>
+
+      <article class="chart-block">
+        <p class="chart-caption">
+          <strong>Price context (2024–2025):</strong> Oil traded between roughly $55 and
+          $90 per barrel — spikes in early 2025 aligned with Middle East tension, not posts
+          alone.
+        </p>
+        <figure class="chart-frame">
+          <img src="/assets/charts/slide-06.png" alt="Crude oil price per barrel 2024 to 2025" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="chart-block">
+        <p class="chart-caption">
+          <strong>June 2025 — Iran cluster:</strong> Each bar is one Trump post and the
+          oil return one week later. Jun 12's diplomacy post preceded a <strong>+10.1%</strong>
+          weekly move — but the same month included military headlines and supply shocks.
+          Conditional coloring highlights magnitude, not causation.
+        </p>
+        <figure class="chart-frame">
+          <img src="/assets/charts/slide-07.png" alt="Column chart of oil one-week returns after Trump posts in June 2025" loading="lazy">
+        </figure>
+        <p class="chart-note">Oil moves for many reasons. Treat post-event returns as timing snapshots, not trade signals.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── S&P 500 ── -->
+  <section class="section" id="sp500">
+    <div class="section-inner">
+      <p class="section-label">Market 03</p>
+      <h2>S&amp;P 500</h2>
+      <div class="section-intro">
+        <p>
+          The S&amp;P 500 tracks roughly 500 large U.S. companies — the broadest measure of
+          American equity health. Trump posts about tariffs, China, and the economy more
+          than any other topic: <strong>1,772 one-day events</strong> in our study.
+        </p>
+        <p>
+          On average, the index drifts slightly higher after his posts (+0.3% at one week,
+          +1.5% at one month). That sounds bullish — but much of 2009–2025 was a secular bull
+          market. Trump is one voice among thousands of daily inputs.
+        </p>
+      </div>
+
+      <div class="stats-row" id="sp500-stats"></div>
+
+      <article class="chart-block">
+        <p class="chart-caption">
+          <strong>Daily close (2024–2025):</strong> The index ranged from about 5,000 to
+          nearly 6,900 points — including a sharp April 2025 drawdown and recovery tied to
+          tariff headlines and broader macro fear.
+        </p>
+        <figure class="chart-frame">
+          <img src="/assets/charts/slide-08.png" alt="S&P 500 daily close 2024 to 2025" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="chart-block">
+        <p class="chart-caption">
+          <strong>Apr 8, 2025 — auto tariffs:</strong> A post on steering jobs back to the U.S.
+          preceded an <strong>+8.3%</strong> one-week rally. Whether the post caused the move
+          or simply coincided with a relief rally after prior tariff fear is debatable — the
+          chart shows price before and after the event date.
+        </p>
+        <figure class="chart-frame">
+          <img src="/assets/charts/slide-09.png" alt="S&P 500 chart around April 8 2025 tariffs post" loading="lazy">
+        </figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── Nasdaq ── -->
+  <section class="section" id="nasdaq">
+    <div class="section-inner">
+      <p class="section-label">Market 04</p>
+      <h2>Nasdaq</h2>
+      <div class="section-intro">
+        <p>
+          The Nasdaq Composite is tech-heavy — Apple, Microsoft, Nvidia, and hundreds of
+          growth names. Trump's posts about Big Tech regulation and election-eve rhetoric
+          map cleanly to this index.
+        </p>
+        <p>
+          Of <strong>74 Nasdaq-tagged events</strong>, the one-month win rate is
+          <strong>79%</strong> — the highest in our study. Average one-month return:
+          +3.0%. Again, tech's long-run outperformance explains much of this; Trump is
+          not the primary driver.
+        </p>
+      </div>
+
+      <div class="stats-row" id="nasdaq-stats"></div>
+
+      <article class="chart-block">
+        <p class="chart-caption">
+          <strong>Index context:</strong> Nasdaq performance alongside summary statistics
+          from the event study — average returns, win rates, and event counts.
+        </p>
+        <figure class="chart-frame">
+          <img src="/assets/charts/slide-10.png" alt="Nasdaq index chart with event study statistics" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="chart-block">
+        <p class="chart-caption">
+          <strong>Nov 2, 2020 — election eve:</strong> A post attacking Biden and Big Tech
+          preceded a <strong>+6.9%</strong> one-week Nasdaq gain. The post landed hours before
+          a major election — one of the noisiest weeks in market history. Association, not
+          attribution.
+        </p>
+        <figure class="chart-frame">
+          <img src="/assets/charts/slide-11.png" alt="Nasdaq chart around November 2 2020 election eve Trump post" loading="lazy">
+        </figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── Invest / Calculator ── -->
+  <section class="section" id="invest">
+    <div class="section-inner">
+      <p class="section-label">Software</p>
+      <h2>When to invest?</h2>
+      <div class="section-intro">
+        <p>
+          This tab is the Python-built interactive layer. It uses the same event-study
+          engine as the pipeline: pick a curated Trump post, choose an amount, and see
+          what a hypothetical investment would have returned one week or one month later.
+        </p>
+        <p>
+          <strong>What it tells you:</strong> historical outcomes on specific dates — not
+          predictions. <strong>What it does not tell you:</strong> that the post caused the
+          return, or that the next post will behave the same way.
+        </p>
+      </div>
+
+      <div class="calculator-panel">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="calc-market">Market</label>
+            <select id="calc-market">
+              <option value="bitcoin">Bitcoin</option>
+              <option value="oil">Oil</option>
+              <option value="sp500">S&amp;P 500</option>
+              <option value="nasdaq">Nasdaq</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="calc-event">Featured event</label>
+            <select id="calc-event"></select>
+          </div>
+          <div class="form-group">
+            <label for="calc-amount">Investment ($)</label>
+            <input type="number" id="calc-amount" value="100000" min="1000" step="1000">
+          </div>
+        </div>
+
+        <div class="horizon-toggle" role="group" aria-label="Return horizon">
+          <button type="button" class="horizon-btn active" data-horizon="1w">1 Week</button>
+          <button type="button" class="horizon-btn" data-horizon="1m">1 Month</button>
+        </div>
+
+        <div class="calc-result" id="calc-result">
+          <p class="result-headline">Select an event to see results</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <p class="section-label">Documentation</p>
+      <h2>About this project</h2>
+      <div class="section-intro">
+        <p>
+          A full-stack data analysis portfolio piece: raw social media data through Python,
+          SQL modeling, Power BI visualization, and this Vercel-hosted website.
+        </p>
+      </div>
+
+      <h3 style="font-family: var(--font-serif); font-weight: 400; font-size: 1.5rem; margin: 2rem 0 1rem;">Data sources</h3>
+      <ul class="about-list">
+        <li><strong>Trump posts:</strong> 90,343 raw records → 73,380 cleaned posts (2009–2025) — deleted posts, pure reposts, and empty text removed</li>
+        <li><strong>Market prices:</strong> Yahoo Finance daily OHLC — S&amp;P 500, Nasdaq, Dow, VIX, Bitcoin, WTI crude oil, gold</li>
+        <li><strong>Event definitions:</strong> keyword topic tagging (Bitcoin, oil/Iran, S&amp;P, Nasdaq, tariffs, etc.) + posting-day event study</li>
+        <li><strong>Forward returns:</strong> +1 day, +1 week (+5 trading days), +1 month (+21 trading days) from each event date</li>
+        <li><strong>Featured stories:</strong> 12 hand-curated events with headlines for portfolio narrative (see <code>powerbi/featured_events.csv</code>)</li>
+      </ul>
+
+      <h3 style="font-family: var(--font-serif); font-weight: 400; font-size: 1.5rem; margin: 2rem 0 1rem;">Technology stack</h3>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <h4>Python</h4>
+          <p>Data cleaning, VADER sentiment, yfinance market pulls, event study, DuckDB star schema, CSV catalog for Power BI</p>
+        </div>
+        <div class="stack-item">
+          <h4>Power BI</h4>
+          <p>Interactive report — price context, event timelines, in-office comparisons, conditional formatting on returns</p>
+        </div>
+        <div class="stack-item">
+          <h4>SQL</h4>
+          <p>Star schema (Fact_Posts, Fact_Market, Dim_Date) with window functions and correlation queries</p>
+        </div>
+        <div class="stack-item">
+          <h4>Cursor + Claude</h4>
+          <p>AI-assisted development environment — pipeline design, DAX debugging, and this website</p>
+        </div>
+        <div class="stack-item">
+          <h4>This site</h4>
+          <p>Vanilla HTML/CSS/JS — deployed on Vercel. Charts exported from Power BI PDF.</p>
+        </div>
+        <div class="stack-item">
+          <h4>GitHub</h4>
+          <p>Full reproducible repository — scripts, data catalog, Power BI files, and website source</p>
+        </div>
+      </div>
+
+      <h3 style="font-family: var(--font-serif); font-weight: 400; font-size: 1.5rem; margin: 2rem 0 1rem;">Methodology</h3>
+      <ul class="about-list">
+        <li>Sentiment scored <em>before</em> market joins to avoid look-ahead bias</li>
+        <li>Aggregate daily sentiment ≈ no correlation with returns — signal lives in specific events</li>
+        <li>All averages include every tagged event, not cherry-picked winners</li>
+        <li>Associations reported honestly; external factors (war, Fed, earnings) always present</li>
+      </ul>
+
+      <p class="disclaimer" style="margin-top: 2rem;">
+        Built by Suhail Ahmed as a portfolio project. Not financial advice. Past performance
+        does not predict future results.
+      </p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Trump Posts &amp; Financial Markets · Event Study · <a href="https://github.com/" id="repo-link">GitHub</a></p>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

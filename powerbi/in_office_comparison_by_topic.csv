@@ -1,0 +1,67 @@
+topic,topic_display,instrument,in_office,horizon,n_events,mean_return_pct,median_return_pct,win_rate_pct,best_return_pct,worst_return_pct,avg_value_of_100k
+bitcoin,Bitcoin,bitcoin,In Office,1d,14,-1.252,-0.298,42.9,2.18,-8.68,98747.66
+bitcoin,Bitcoin,bitcoin,In Office,1w,14,-2.755,-0.153,50.0,2.85,-14.48,97244.67
+bitcoin,Bitcoin,bitcoin,In Office,1m,14,-1.456,-1.953,28.6,12.66,-9.63,98544.34
+bitcoin,Bitcoin,bitcoin,Not In Office,1d,14,0.026,0.067,57.1,4.21,-3.94,100026.0
+bitcoin,Bitcoin,bitcoin,Not In Office,1w,14,-0.85,-0.498,50.0,8.28,-14.84,99149.97
+bitcoin,Bitcoin,bitcoin,Not In Office,1m,14,3.643,2.92,50.0,37.36,-15.15,103642.81
+dow,Dow Jones,dow,In Office,1d,13,-0.039,0.0,46.2,1.05,-2.78,99960.64
+dow,Dow Jones,dow,In Office,1w,13,-0.028,-0.038,38.5,3.02,-3.99,99971.87
+dow,Dow Jones,dow,In Office,1m,13,-1.282,1.663,61.5,5.34,-27.58,98718.34
+dow,Dow Jones,dow,Not In Office,1d,2,0.295,0.295,50.0,0.59,-0.01,100294.86
+dow,Dow Jones,dow,Not In Office,1w,2,-0.821,-0.821,0.0,-0.19,-1.46,99179.0
+dow,Dow Jones,dow,Not In Office,1m,2,1.092,1.092,50.0,3.14,-0.96,101091.8
+fed_rates,Fed & Interest Rates,sp500,In Office,1d,159,0.03,0.002,50.3,4.96,-11.98,100030.24
+fed_rates,Fed & Interest Rates,sp500,In Office,1w,156,0.403,0.651,69.2,7.18,-14.98,100402.72
+fed_rates,Fed & Interest Rates,sp500,In Office,1m,152,0.931,1.993,70.4,13.31,-28.85,100930.75
+fed_rates,Fed & Interest Rates,sp500,Not In Office,1d,229,0.144,0.0,44.1,4.63,-3.88,100143.68
+fed_rates,Fed & Interest Rates,sp500,Not In Office,1w,229,0.332,0.425,59.8,6.52,-9.02,100332.47
+fed_rates,Fed & Interest Rates,sp500,Not In Office,1m,229,1.791,2.861,73.4,13.37,-12.12,101791.09
+gold,Gold,gold,In Office,1d,22,0.182,0.0,36.4,2.12,-0.89,100182.39
+gold,Gold,gold,In Office,1w,22,0.539,0.278,50.0,5.71,-5.02,100538.61
+gold,Gold,gold,In Office,1m,20,2.078,1.388,65.0,18.11,-3.7,102077.85
+gold,Gold,gold,Not In Office,1d,72,0.052,0.0,41.7,1.58,-2.26,100051.83
+gold,Gold,gold,Not In Office,1w,72,0.373,0.594,56.9,5.01,-5.65,100372.93
+gold,Gold,gold,Not In Office,1m,72,0.855,1.025,56.9,12.5,-11.95,100854.5
+iran_geopolitics,Iran & Geopolitics,oil,In Office,1d,157,0.376,0.0,38.2,24.67,-8.57,100375.7
+iran_geopolitics,Iran & Geopolitics,oil,In Office,1w,157,-0.314,0.328,56.1,23.54,-15.08,99686.2
+iran_geopolitics,Iran & Geopolitics,oil,In Office,1m,157,-0.978,-0.96,44.6,141.29,-57.91,99022.19
+iran_geopolitics,Iran & Geopolitics,oil,Not In Office,1d,224,-0.04,0.0,39.3,6.1,-7.73,99959.77
+iran_geopolitics,Iran & Geopolitics,oil,Not In Office,1w,224,-0.21,-0.274,47.8,13.4,-14.55,99789.54
+iran_geopolitics,Iran & Geopolitics,oil,Not In Office,1m,224,-0.878,-0.956,43.3,25.27,-26.31,99122.13
+israel_mideast,Israel & Middle East,sp500,In Office,1d,194,0.081,0.0,42.8,2.62,-2.78,100081.38
+israel_mideast,Israel & Middle East,sp500,In Office,1w,194,0.355,0.601,63.4,7.26,-11.54,100354.56
+israel_mideast,Israel & Middle East,sp500,In Office,1m,191,1.37,2.021,75.9,10.48,-13.15,101370.05
+israel_mideast,Israel & Middle East,sp500,Not In Office,1d,254,0.117,0.0,46.9,4.63,-3.19,100117.46
+israel_mideast,Israel & Middle East,sp500,Not In Office,1w,254,0.23,0.381,60.6,7.68,-6.54,100230.05
+israel_mideast,Israel & Middle East,sp500,Not In Office,1m,254,1.67,2.074,71.7,10.52,-17.27,101670.17
+nasdaq,Nasdaq,nasdaq,In Office,1d,54,-0.051,0.0,46.3,2.71,-5.27,99948.94
+nasdaq,Nasdaq,nasdaq,In Office,1w,54,0.162,0.269,55.6,6.9,-5.71,100161.64
+nasdaq,Nasdaq,nasdaq,In Office,1m,53,3.819,3.789,88.7,13.76,-10.29,103819.19
+nasdaq,Nasdaq,nasdaq,Not In Office,1d,20,0.021,0.0,35.0,2.69,-1.93,100020.83
+nasdaq,Nasdaq,nasdaq,Not In Office,1w,20,-0.083,-0.212,50.0,3.17,-3.99,99916.66
+nasdaq,Nasdaq,nasdaq,Not In Office,1m,20,0.985,1.46,55.0,8.9,-9.38,100984.77
+oil_energy,Oil & Energy,oil,In Office,1d,126,0.185,0.0,39.7,37.66,-10.26,100185.34
+oil_energy,Oil & Energy,oil,In Office,1w,126,-4.085,-0.051,50.0,26.07,-267.92,95915.01
+oil_energy,Oil & Energy,oil,In Office,1m,121,2.289,-0.752,47.1,238.86,-43.45,102288.68
+oil_energy,Oil & Energy,oil,Not In Office,1d,279,-0.159,0.0,40.9,6.1,-6.41,99840.54
+oil_energy,Oil & Energy,oil,Not In Office,1w,279,-0.5,-0.481,43.4,12.67,-14.55,99500.35
+oil_energy,Oil & Energy,oil,Not In Office,1m,279,-1.916,-2.262,39.4,21.8,-22.8,98084.32
+sp500,S&P 500,sp500,In Office,1d,232,-0.011,0.0,37.5,3.26,-5.98,99988.81
+sp500,S&P 500,sp500,In Office,1w,231,0.209,0.416,61.9,5.78,-7.97,100209.36
+sp500,S&P 500,sp500,In Office,1m,229,1.067,1.91,72.5,15.74,-31.93,101067.4
+sp500,S&P 500,sp500,Not In Office,1d,140,-0.05,0.0,37.1,4.74,-4.42,99950.28
+sp500,S&P 500,sp500,Not In Office,1w,140,0.396,0.438,58.6,7.6,-6.7,100396.34
+sp500,S&P 500,sp500,Not In Office,1m,140,1.227,1.567,69.3,9.21,-9.2,101227.04
+tariffs_china,Tariffs & China,sp500,In Office,1d,548,0.078,0.0,42.3,9.52,-5.98,100078.32
+tariffs_china,Tariffs & China,sp500,In Office,1w,545,0.428,0.619,64.0,17.4,-17.97,100428.44
+tariffs_china,Tariffs & China,sp500,In Office,1m,536,1.722,2.278,74.8,25.11,-32.97,101722.16
+tariffs_china,Tariffs & China,sp500,Not In Office,1d,568,0.031,0.0,44.4,4.33,-4.78,100031.43
+tariffs_china,Tariffs & China,sp500,Not In Office,1w,568,0.234,0.406,59.7,7.33,-11.07,100233.73
+tariffs_china,Tariffs & China,sp500,Not In Office,1m,568,1.213,1.678,67.3,11.64,-15.26,101212.79
+vix_fear,Market Fear / VIX,vix,In Office,1d,11,-4.666,-2.828,9.1,4.41,-16.68,95333.72
+vix_fear,Market Fear / VIX,vix,In Office,1w,11,-4.754,-7.249,27.3,10.1,-25.66,95246.41
+vix_fear,Market Fear / VIX,vix,In Office,1m,10,-5.901,-9.523,20.0,42.31,-28.46,94099.37
+vix_fear,Market Fear / VIX,vix,Not In Office,1d,18,-0.633,0.0,44.4,8.36,-28.16,99367.45
+vix_fear,Market Fear / VIX,vix,Not In Office,1w,18,-0.301,0.702,50.0,36.82,-46.31,99698.68
+vix_fear,Market Fear / VIX,vix,Not In Office,1m,18,7.859,6.457,55.6,125.14,-44.72,107859.14

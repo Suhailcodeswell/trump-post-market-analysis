@@ -1,0 +1,34 @@
+topic,topic_display,instrument,horizon,n_events,mean_return_pct,median_return_pct,win_rate_pct,best_return_pct,worst_return_pct,avg_value_of_100k
+bitcoin,Bitcoin,bitcoin,1d,28,-0.613,-0.026,50.0,4.21,-8.68,99386.83
+bitcoin,Bitcoin,bitcoin,1w,28,-1.803,-0.153,50.0,8.28,-14.84,98197.32
+bitcoin,Bitcoin,bitcoin,1m,28,1.094,-0.899,39.3,37.36,-15.15,101093.57
+dow,Dow Jones,dow,1d,15,0.005,0.0,46.7,1.05,-2.78,100005.2
+dow,Dow Jones,dow,1w,15,-0.134,-0.151,33.3,3.02,-3.99,99866.16
+dow,Dow Jones,dow,1m,15,-0.965,1.663,60.0,5.34,-27.58,99034.8
+fed_rates,Fed & Interest Rates,sp500,1d,388,0.097,0.0,46.6,4.96,-11.98,100097.19
+fed_rates,Fed & Interest Rates,sp500,1w,385,0.361,0.52,63.6,7.18,-14.98,100360.93
+fed_rates,Fed & Interest Rates,sp500,1m,381,1.448,2.37,72.2,13.37,-28.85,101447.85
+gold,Gold,gold,1d,94,0.082,0.0,40.4,2.12,-2.26,100082.38
+gold,Gold,gold,1w,94,0.412,0.553,55.3,5.71,-5.65,100411.7
+gold,Gold,gold,1m,92,1.12,1.106,58.7,18.11,-11.95,101120.45
+iran_geopolitics,Iran & Geopolitics,oil,1d,381,0.131,0.0,38.8,24.67,-8.57,100131.16
+iran_geopolitics,Iran & Geopolitics,oil,1w,381,-0.253,0.058,51.2,23.54,-15.08,99746.96
+iran_geopolitics,Iran & Geopolitics,oil,1m,381,-0.919,-0.96,43.8,141.29,-57.91,99080.95
+israel_mideast,Israel & Middle East,sp500,1d,448,0.102,0.0,45.1,4.63,-3.19,100101.83
+israel_mideast,Israel & Middle East,sp500,1w,448,0.284,0.496,61.8,7.68,-11.54,100283.97
+israel_mideast,Israel & Middle East,sp500,1m,445,1.541,2.065,73.5,10.52,-17.27,101541.35
+nasdaq,Nasdaq,nasdaq,1d,74,-0.032,0.0,43.2,2.71,-5.27,99968.37
+nasdaq,Nasdaq,nasdaq,1w,74,0.095,0.269,54.1,6.9,-5.71,100095.43
+nasdaq,Nasdaq,nasdaq,1m,73,3.043,3.694,79.5,13.76,-10.29,103042.64
+oil_energy,Oil & Energy,oil,1d,405,-0.052,0.0,40.5,37.66,-10.26,99947.81
+oil_energy,Oil & Energy,oil,1w,405,-1.615,-0.325,45.4,26.07,-267.92,98384.91
+oil_energy,Oil & Energy,oil,1m,400,-0.644,-1.749,41.8,238.86,-43.45,99356.14
+sp500,S&P 500,sp500,1d,372,-0.026,0.0,37.4,4.74,-5.98,99974.31
+sp500,S&P 500,sp500,1w,371,0.28,0.426,60.6,7.6,-7.97,100279.92
+sp500,S&P 500,sp500,1m,369,1.128,1.786,71.3,15.74,-31.93,101127.97
+tariffs_china,Tariffs & China,sp500,1d,1116,0.054,0.0,43.4,9.52,-5.98,100054.46
+tariffs_china,Tariffs & China,sp500,1w,1113,0.329,0.512,61.8,17.4,-17.97,100329.07
+tariffs_china,Tariffs & China,sp500,1m,1104,1.46,2.077,70.9,25.11,-32.97,101460.1
+vix_fear,Market Fear / VIX,vix,1d,29,-2.163,0.0,31.0,8.36,-28.16,97837.42
+vix_fear,Market Fear / VIX,vix,1w,29,-1.99,-0.843,41.4,36.82,-46.31,98009.89
+vix_fear,Market Fear / VIX,vix,1m,28,2.945,-5.649,42.9,125.14,-44.72,102944.94
