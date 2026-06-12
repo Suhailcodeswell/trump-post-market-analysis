@@ -10,6 +10,13 @@ const MARKET_LABELS = {
   nasdaq: "Nasdaq",
 };
 
+// Update these three values once; every link on the site reads from here.
+const CONTACT = {
+  linkedin: "#", // e.g. https://www.linkedin.com/in/your-handle
+  email: "#", // e.g. mailto:you@gmail.com
+  github: "https://github.com/", // project repository URL
+};
+
 const TRANSITION_OUT_MS = 220;
 
 let events = [];
@@ -18,6 +25,7 @@ let activeHorizon = "1w";
 let switching = false;
 
 async function init() {
+  applyContactLinks();
   setupTabs();
   setupReveals();
 
@@ -35,6 +43,20 @@ async function init() {
 
   renderStats();
   setupCalculator();
+}
+
+function applyContactLinks() {
+  const map = {
+    linkedin: ["hero-linkedin", "about-linkedin", "footer-linkedin"],
+    email: ["hero-email", "about-email", "footer-email"],
+    github: ["hero-github", "about-github", "footer-github", "repo-link"],
+  };
+  Object.entries(map).forEach(([key, ids]) => {
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.href = CONTACT[key];
+    });
+  });
 }
 
 /* ── Tabs ── */
