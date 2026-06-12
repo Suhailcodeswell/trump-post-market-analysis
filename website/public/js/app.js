@@ -67,20 +67,74 @@ function applyContactLinks() {
 
 /* ── Snap scroll between hero and deck ── */
 
+let autoScrolling = false;
+
+function animateScrollTo(targetY, duration = 1200) {
+  const wrap = document.getElementById("snap-wrap");
+  const startY = wrap.scrollTop;
+  const delta = targetY - startY;
+  if (Math.abs(delta) < 2) return;
+
+  autoScrolling = true;
+  // Snap would correct intermediate positions mid-animation; pause it.
+  wrap.style.scrollSnapType = "none";
+  const startTime = performance.now();
+  const easeInOutCubic = (t) =>
+    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+  function frame(now) {
+    const progress = Math.min(1, (now - startTime) / duration);
+    wrap.scrollTop = startY + delta * easeInOutCubic(progress);
+    if (progress < 1) {
+      requestAnimationFrame(frame);
+    } else {
+      wrap.style.scrollSnapType = "";
+      autoScrolling = false;
+    }
+  }
+  requestAnimationFrame(frame);
+}
+
 function scrollToDeck() {
-  document.getElementById("deck").scrollIntoView({ behavior: "smooth" });
+  animateScrollTo(document.getElementById("deck").offsetTop);
 }
 
 function scrollToTop() {
-  document.getElementById("top").scrollIntoView({ behavior: "smooth" });
+  animateScrollTo(0);
 }
 
 function setupSnap() {
+  const wrap = document.getElementById("snap-wrap");
+  const deck = document.getElementById("deck");
+
   document.getElementById("scroll-cue").addEventListener("click", scrollToDeck);
   document.getElementById("brand-link").addEventListener("click", (e) => {
     e.preventDefault();
     scrollToTop();
   });
+
+  // Take over the wheel so the hero-to-deck transition runs at our pace.
+  wrap.addEventListener(
+    "wheel",
+    (e) => {
+      if (autoScrolling) {
+        e.preventDefault();
+        return;
+      }
+      const onHero = wrap.scrollTop < deck.offsetTop * 0.5;
+      if (onHero && e.deltaY > 8) {
+        e.preventDefault();
+        scrollToDeck();
+      } else if (!onHero && e.deltaY < -8) {
+        const panel = document.querySelector(".panel.active");
+        if (panel && panel.scrollTop <= 0) {
+          e.preventDefault();
+          scrollToTop();
+        }
+      }
+    },
+    { passive: false }
+  );
 }
 
 /* ── Tabs with directional slides ── */
@@ -113,7 +167,8 @@ function setupTabs() {
   if (initial && TAB_ORDER.includes(initial)) {
     showPanel(initial, null);
     requestAnimationFrame(() => {
-      document.getElementById("deck").scrollIntoView({ behavior: "instant" });
+      const wrap = document.getElementById("snap-wrap");
+      wrap.scrollTop = document.getElementById("deck").offsetTop;
     });
   }
 }
