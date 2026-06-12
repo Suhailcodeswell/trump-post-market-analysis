@@ -95,12 +95,18 @@ function animateScrollTo(targetY, duration = 1200) {
   requestAnimationFrame(frame);
 }
 
+function isMobileSnap() {
+  return window.matchMedia("(max-width: 768px)").matches;
+}
+
 function scrollToDeck() {
-  animateScrollTo(document.getElementById("deck").offsetTop);
+  const duration = isMobileSnap() ? 1400 : 1200;
+  animateScrollTo(document.getElementById("deck").offsetTop, duration);
 }
 
 function scrollToTop() {
-  animateScrollTo(0);
+  const duration = isMobileSnap() ? 1400 : 1200;
+  animateScrollTo(0, duration);
 }
 
 function setupSnap() {
@@ -113,7 +119,7 @@ function setupSnap() {
     scrollToTop();
   });
 
-  // Take over the wheel so the hero-to-deck transition runs at our pace.
+  // Laptop: eased transition on wheel between hero and deck.
   wrap.addEventListener(
     "wheel",
     (e) => {
@@ -134,6 +140,66 @@ function setupSnap() {
       }
     },
     { passive: false }
+  );
+
+  // Phone: native snap feels instant — intercept vertical swipes on the outer wrap.
+  let touchStartY = 0;
+  let touchStartX = 0;
+  let touchActive = false;
+
+  wrap.addEventListener(
+    "touchstart",
+    (e) => {
+      if (!isMobileSnap() || e.touches.length !== 1) return;
+      touchStartY = e.touches[0].clientY;
+      touchStartX = e.touches[0].clientX;
+      touchActive = true;
+    },
+    { passive: true }
+  );
+
+  wrap.addEventListener(
+    "touchmove",
+    (e) => {
+      if (!isMobileSnap() || !touchActive || autoScrolling) return;
+      const dy = e.touches[0].clientY - touchStartY;
+      const dx = e.touches[0].clientX - touchStartX;
+      if (Math.abs(dx) > Math.abs(dy)) return;
+
+      const onHero = wrap.scrollTop < deck.offsetTop * 0.5;
+      if (onHero && dy < -8) {
+        e.preventDefault();
+      } else if (!onHero && dy > 8) {
+        const panel = document.querySelector(".panel.active");
+        if (panel && panel.scrollTop <= 0) {
+          e.preventDefault();
+        }
+      }
+    },
+    { passive: false }
+  );
+
+  wrap.addEventListener(
+    "touchend",
+    (e) => {
+      if (!isMobileSnap() || !touchActive || autoScrolling) return;
+      touchActive = false;
+
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dy) < 50 || Math.abs(dx) > Math.abs(dy) * 1.2) return;
+
+      const onHero = wrap.scrollTop < deck.offsetTop * 0.5;
+      if (onHero && dy < 0) {
+        scrollToDeck();
+      } else if (!onHero && dy > 0) {
+        const panel = document.querySelector(".panel.active");
+        if (panel && panel.scrollTop <= 0) {
+          scrollToTop();
+        }
+      }
+    },
+    { passive: true }
   );
 }
 
