@@ -16,6 +16,7 @@ const CONTACT = {
   linkedin: "https://www.linkedin.com/in/suhail-ahmed-b75301232",
   email: "mailto:suhailahmedprof@gmail.com",
   github: "https://github.com/Suhailcodeswell/trump-post-market-analysis",
+  portfolio: "https://portfolio-xi-rosy-10.vercel.app",
 };
 
 const TAB_ORDER = ["story", "bitcoin", "oil", "sp500", "nasdaq", "invest", "about"];
@@ -56,6 +57,7 @@ function applyContactLinks() {
     linkedin: ["hero-linkedin", "about-linkedin", "footer-linkedin"],
     email: ["hero-email", "about-email", "footer-email"],
     github: ["hero-github", "about-github", "footer-github"],
+    portfolio: ["about-portfolio", "footer-portfolio"],
   };
   Object.entries(map).forEach(([key, ids]) => {
     ids.forEach((id) => {
