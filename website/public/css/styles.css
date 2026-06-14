@@ -1044,6 +1044,12 @@ body {
   margin-top: 0.4rem;
 }
 
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0.35rem 0 0;
+}
+
 .footer-links a {
   color: var(--accent-light);
   margin: 0 0.6rem;

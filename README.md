@@ -8,6 +8,8 @@
 
 **Live site:** [trump-post-market-analysis.vercel.app](https://trump-post-market-analysis.vercel.app)
 
+**Author:** Suhail Ahmed · **License:** [All Rights Reserved](LICENSE) (viewing allowed; copying and republishing require permission)
+
 **Skills demonstrated:** Python data engineering · NLP sentiment analysis · SQL star-schema
 modeling (PostgreSQL) · window functions · financial event-study methodology · interactive
 data visualization.
@@ -100,4 +102,5 @@ Python (pandas, vaderSentiment, yfinance, scipy, matplotlib) · SQL (PostgreSQL 
 Plotly · HTML/CSS/JS.
 
 ---
-*Built by Suhail Ahmed.*
+*Built by Suhail Ahmed. Copyright © 2025–2026 Suhail Ahmed. All rights reserved.*
+See [LICENSE](LICENSE) for terms.
