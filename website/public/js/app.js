@@ -27,6 +27,13 @@ let summary = [];
 let activeHorizon = "1w";
 let switching = false;
 
+function loadPanelImages(panel) {
+  if (!panel) return;
+  panel.querySelectorAll("img[data-src]:not([src])").forEach((img) => {
+    img.src = img.dataset.src;
+  });
+}
+
 async function init() {
   applyContactLinks();
   setupTabs();
@@ -35,6 +42,7 @@ async function init() {
   setupSwipe();
   setupKeyboard();
   updateArrows();
+  loadPanelImages(document.querySelector(".panel.active"));
 
   try {
     const [eventsRes, summaryRes] = await Promise.all([
@@ -306,6 +314,7 @@ function showPanel(id, slideClass) {
   });
   history.replaceState(null, "", `#${id}`);
   updateArrows();
+  loadPanelImages(document.getElementById(id));
   refreshReveals();
 }
 

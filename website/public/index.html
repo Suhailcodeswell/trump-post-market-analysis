@@ -2,24 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Social preview (LinkedIn reads these first; does not change the live layout) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Trump Posts and Financial Markets">
+  <meta property="og:url" content="https://trump-post-market-analysis.vercel.app/">
+  <meta property="og:title" content="Does what Trump says affect financial markets?">
+  <meta property="og:description" content="An event study of 73,380 posts against Bitcoin, oil, the S and P 500, and Nasdaq. Python, SQL, Power BI, and a live calculator.">
+  <meta property="og:image" content="https://trump-post-market-analysis.vercel.app/assets/social-preview.jpg">
+  <meta property="og:image:secure_url" content="https://trump-post-market-analysis.vercel.app/assets/social-preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+  <meta property="og:image:alt" content="Does what Trump says affect financial markets? An event study by Suhail Ahmed.">
+  <link rel="canonical" href="https://trump-post-market-analysis.vercel.app/">
+  <link rel="image_src" href="https://trump-post-market-analysis.vercel.app/assets/social-preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Does what Trump says affect financial markets?">
+  <meta name="twitter:description" content="An event study of 73,380 posts against Bitcoin, oil, the S and P 500, and Nasdaq.">
+  <meta name="twitter:image" content="https://trump-post-market-analysis.vercel.app/assets/social-preview.jpg">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Do Donald Trump's social media posts move Bitcoin, oil, the S&P 500, and Nasdaq? An event study by Suhail Ahmed, built with Python and Power BI.">
   <title>Trump Posts &amp; Financial Markets: An Event Study</title>
-
-  <!-- Open Graph / LinkedIn link preview (does not change the live site layout) -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Trump Posts &amp; Financial Markets">
-  <meta property="og:url" content="https://trump-post-market-analysis.vercel.app/">
-  <meta property="og:title" content="Does what Trump says affect financial markets?">
-  <meta property="og:description" content="An event study of 73,380 posts against Bitcoin, oil, the S&amp;P 500, and Nasdaq. Python, SQL, Power BI, and a live investment calculator.">
-  <meta property="og:image" content="https://trump-post-market-analysis.vercel.app/assets/og-cover.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Does what Trump says affect financial markets? An event study by Suhail Ahmed.">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Does what Trump says affect financial markets?">
-  <meta name="twitter:description" content="An event study of 73,380 posts against Bitcoin, oil, the S&amp;P 500, and Nasdaq.">
-  <meta name="twitter:image" content="https://trump-post-market-analysis.vercel.app/assets/og-cover.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,7 +186,7 @@
                 single post can be judged without it.
               </p>
               <figure class="chart-frame">
-                <img src="/assets/charts/slide-01.png" alt="Bitcoin price line chart from 2009 to 2025" loading="lazy">
+                <img data-src="/assets/charts/slide-01.png" alt="Bitcoin price line chart from 2009 to 2025" loading="lazy">
               </figure>
             </article>
 
@@ -195,7 +199,7 @@
                 is +37%.
               </p>
               <figure class="chart-frame">
-                <img src="/assets/charts/slide-02.png" alt="Bitcoin chart around October 31 2024 Trump post" loading="lazy">
+                <img data-src="/assets/charts/slide-02.png" alt="Bitcoin chart around October 31 2024 Trump post" loading="lazy">
               </figure>
             </article>
 
@@ -207,7 +211,7 @@
                 to do with him.
               </p>
               <figure class="chart-frame">
-                <img src="/assets/charts/slide-03.png" alt="Bitcoin chart around July 12 2019 anti-crypto Trump post" loading="lazy">
+                <img data-src="/assets/charts/slide-03.png" alt="Bitcoin chart around July 12 2019 anti-crypto Trump post" loading="lazy">
               </figure>
             </article>
 
@@ -219,7 +223,7 @@
                 the timeline is not the same thing as good news to a trader.
               </p>
               <figure class="chart-frame">
-                <img src="/assets/charts/slide-04.png" alt="Bitcoin chart around March 2 2025 crypto reserve post" loading="lazy">
+                <img data-src="/assets/charts/slide-04.png" alt="Bitcoin chart around March 2 2025 crypto reserve post" loading="lazy">
               </figure>
             </article>
 
@@ -230,7 +234,7 @@
                 it, matters more than the title under the handle.
               </p>
               <figure class="chart-frame">
-                <img src="/assets/charts/slide-05.png" alt="Bar chart comparing Bitcoin returns when Trump was in office versus not" loading="lazy">
+                <img data-src="/assets/charts/slide-05.png" alt="Bar chart comparing Bitcoin returns when Trump was in office versus not" loading="lazy">
               </figure>
               <p class="chart-note">Source: Power BI report built on the event study. 73,380 cleaned posts, 2009 to 2025.</p>
             </article>
@@ -268,7 +272,7 @@
                 track Middle East tension. Posts decorate this chart. They do not drive it.
               </p>
               <figure class="chart-frame">
-                <img src="/assets/charts/slide-06.png" alt="Crude oil price per barrel 2024 to 2025" loading="lazy">
+                <img data-src="/assets/charts/slide-06.png" alt="Crude oil price per barrel 2024 to 2025" loading="lazy">
               </figure>
             </article>
 
@@ -280,7 +284,7 @@
                 coloring marks size, nothing else.
               </p>
               <figure class="chart-frame">
-                <img src="/assets/charts/slide-07.png" alt="Column chart of oil one-week returns after Trump posts in June 2025" loading="lazy">
+                <img data-src="/assets/charts/slide-07.png" alt="Column chart of oil one-week returns after Trump posts in June 2025" loading="lazy">
               </figure>
               <p class="chart-note">Read post-event returns here as timing snapshots, never as trade signals.</p>
             </article>
@@ -319,7 +323,7 @@
                 violent April 2025 plunge and rebound is the scar tissue of tariff season.
               </p>
               <figure class="chart-frame">
-                <img src="/assets/charts/slide-08.png" alt="S&P 500 daily close 2024 to 2025" loading="lazy">
+                <img data-src="/assets/charts/slide-08.png" alt="S&P 500 daily close 2024 to 2025" loading="lazy">
               </figure>
             </article>
 
@@ -331,7 +335,7 @@
                 rally? The chart shows price on both sides of the date. Decide for yourself.
               </p>
               <figure class="chart-frame">
-                <img src="/assets/charts/slide-09.png" alt="S&P 500 chart around April 8 2025 tariffs post" loading="lazy">
+                <img data-src="/assets/charts/slide-09.png" alt="S&P 500 chart around April 8 2025 tariffs post" loading="lazy">
               </figure>
             </article>
 
@@ -369,7 +373,7 @@
                 average returns, win rates, and event counts.
               </p>
               <figure class="chart-frame">
-                <img src="/assets/charts/slide-10.png" alt="Nasdaq index chart with event study statistics" loading="lazy">
+                <img data-src="/assets/charts/slide-10.png" alt="Nasdaq index chart with event study statistics" loading="lazy">
               </figure>
             </article>
 
@@ -381,7 +385,7 @@
                 inside it. Read this one as a timestamp, not a trigger.
               </p>
               <figure class="chart-frame">
-                <img src="/assets/charts/slide-11.png" alt="Nasdaq chart around November 2 2020 election eve Trump post" loading="lazy">
+                <img data-src="/assets/charts/slide-11.png" alt="Nasdaq chart around November 2 2020 election eve Trump post" loading="lazy">
               </figure>
             </article>
 
@@ -468,7 +472,7 @@
                 </p>
               </div>
               <figure class="about-portrait">
-                <img src="/assets/trump-portrait.jpg" alt="Official presidential portrait of Donald Trump" loading="lazy">
+                <img data-src="/assets/trump-portrait.jpg" alt="Official presidential portrait of Donald Trump" loading="lazy">
                 <figcaption>The subject. Official presidential portrait.</figcaption>
               </figure>
             </div>
@@ -564,6 +568,6 @@
 
   </div>
 
-  <script src="/js/app.js?v=7"></script>
+  <script src="/js/app.js?v=9"></script>
 </body>
 </html>

@@ -6,10 +6,10 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "website" / "public" / "assets"
-OUT = ASSETS / "og-cover.jpg"
+OUT = ASSETS / "social-preview.jpg"
 HERO = ASSETS / "trump-hero.webp"
 
-W, H = 1200, 630
+W, H = 1200, 627
 BG = (250, 249, 247)
 ACCENT = (45, 90, 135)
 TEXT = (22, 24, 29)
