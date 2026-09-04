@@ -22,3 +22,6 @@ Thumbs.db
 # data/processed/posts_*.csv
 
 .vercel
+
+website/public/assets/archive-*
+
