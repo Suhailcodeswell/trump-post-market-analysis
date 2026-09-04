@@ -13,10 +13,10 @@ const MARKET_LABELS = {
 
 // Update these three values once; every link on the site reads from here.
 const CONTACT = {
-  linkedin: "https://www.linkedin.com/in/suhail-ahmed-b75301232",
+  linkedin: "https://www.linkedin.com/in/suhail-ahmed-b75301232/",
   email: "mailto:suhailahmedprof@gmail.com",
   github: "https://github.com/Suhailcodeswell/political-sentiment-market-analysis",
-  portfolio: "https://portfolio-xi-rosy-10.vercel.app",
+  portfolio: "https://portfolio-xi-rosy-10.vercel.app/",
 };
 
 const TAB_ORDER = ["story", "bitcoin", "oil", "sp500", "nasdaq", "invest", "about"];
