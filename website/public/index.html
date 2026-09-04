@@ -4,37 +4,37 @@
   <meta charset="UTF-8">
   <!-- Social preview (LinkedIn reads these first; does not change the live layout) -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Political Sentiment and Financial Markets">
+  <meta property="og:site_name" content="Trump Posts and Financial Markets">
   <meta property="og:url" content="https://political-sentiment-market-analysis.vercel.app/">
-  <meta name="title" property="og:title" content="Do political posts move financial markets?">
-  <meta name="description" property="og:description" content="An event study of 73,380 posts against Bitcoin, oil, the S and P 500, and Nasdaq. Python, SQL, Power BI, and a live calculator.">
-  <meta name="image" property="og:image" content="https://political-sentiment-market-analysis.vercel.app/assets/linkedin-share.jpg">
-  <meta property="og:image:secure_url" content="https://political-sentiment-market-analysis.vercel.app/assets/linkedin-share.jpg">
+  <meta property="og:title" content="Does what Trump says affect financial markets?">
+  <meta property="og:description" content="An event study of 73,380 posts against Bitcoin, oil, the S and P 500, and Nasdaq. Python, SQL, Power BI, and a live calculator.">
+  <meta property="og:image" content="https://political-sentiment-market-analysis.vercel.app/assets/social-preview.jpg">
+  <meta property="og:image:secure_url" content="https://political-sentiment-market-analysis.vercel.app/assets/social-preview.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="627">
-  <meta property="og:image:alt" content="Do political posts move financial markets? An event study by Suhail Ahmed.">
+  <meta property="og:image:alt" content="Does what Trump says affect financial markets? An event study by Suhail Ahmed.">
   <link rel="canonical" href="https://political-sentiment-market-analysis.vercel.app/">
-  <link rel="image_src" href="https://political-sentiment-market-analysis.vercel.app/assets/linkedin-share.jpg">
+  <link rel="image_src" href="https://political-sentiment-market-analysis.vercel.app/assets/social-preview.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Do political posts move financial markets?">
+  <meta name="twitter:title" content="Does what Trump says affect financial markets?">
   <meta name="twitter:description" content="An event study of 73,380 posts against Bitcoin, oil, the S and P 500, and Nasdaq.">
-  <meta name="twitter:image" content="https://political-sentiment-market-analysis.vercel.app/assets/linkedin-share.jpg">
+  <meta name="twitter:image" content="https://political-sentiment-market-analysis.vercel.app/assets/social-preview.jpg">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Do high-profile political social posts move Bitcoin, oil, the S&P 500, and Nasdaq? An event study by Suhail Ahmed, built with Python and Power BI.">
-  <title>Political Sentiment &amp; Financial Markets: An Event Study</title>
+  <meta name="description" content="Do Donald Trump's social media posts move Bitcoin, oil, the S&P 500, and Nasdaq? An event study by Suhail Ahmed, built with Python and Power BI.">
+  <title>Trump Posts &amp; Financial Markets: An Event Study</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css?v=10">
+  <link rel="stylesheet" href="/css/styles.css?v=11">
 </head>
 <body>
 
   <nav class="site-nav" aria-label="Main">
     <div class="nav-inner">
-      <a class="nav-brand" href="#top" id="brand-link">Sentiment &amp; Markets</a>
+      <a class="nav-brand" href="#top" id="brand-link">Trump &amp; Markets</a>
       <div class="nav-links" role="tablist">
         <button class="nav-tab active" data-tab="story" role="tab" aria-selected="true">The Story</button>
         <button class="nav-tab" data-tab="bitcoin" role="tab" aria-selected="false">Bitcoin</button>
@@ -51,14 +51,14 @@
 
     <!-- ── Screen 1: Hero ── -->
     <header class="hero snap-screen" id="top">
-      <img class="hero-image" src="/assets/market-hero.jpg" alt="" aria-hidden="true">
+      <img class="hero-image" src="/assets/trump-hero.webp" alt="" aria-hidden="true">
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-inner">
         <p class="hero-eyebrow stagger">An Event Study · 73,380 Posts · 2009–2025</p>
-        <h1 class="stagger">Do political posts move financial markets?</h1>
+        <h1 class="stagger">Does what Trump says affect financial markets?</h1>
         <p class="hero-lead stagger">
-          Sixteen years of political communication, and four markets that may or may not
-          be listening. This project lines up 73,380 cleaned political posts against Bitcoin,
+          One man, sixteen years of posts, and four markets that may or may not be
+          listening. This project lines up 73,380 of Donald Trump's posts against Bitcoin,
           crude oil, the S&amp;P 500, and the Nasdaq, and measures what prices actually did
           in the day, week, and month after each one.
         </p>
@@ -90,17 +90,17 @@
         <section class="panel active" id="story" role="tabpanel">
           <div class="section-inner">
             <p class="section-label reveal">Start here</p>
-            <h2 class="reveal">When political posts land, something happens. Or does it?</h2>
+            <h2 class="reveal">When he posts, something happens. Or does it?</h2>
             <div class="section-intro reveal">
               <p>
-                Traders set alerts for market-moving political posts. Newsrooms refresh
-                those feeds in real time. For almost twenty years, high-profile political
-                communication has been able to move a sentence into a market reaction. Some
-                posts were about Bitcoin. Some touched Iran and energy. A few announced
-                tariffs that knocked billions off the S&amp;P 500 before lunch.
+                Traders set alerts for his posts. Newsrooms refresh his feed. For almost
+                twenty years, Donald Trump has been able to type a sentence and watch
+                markets twitch. Some of those sentences were about Bitcoin. Some threatened
+                Iran. A few announced tariffs that knocked billions off the S&amp;P 500
+                before lunch.
               </p>
               <p>
-                Whether markets actually follow that messaging is a different question, and it deserves a
+                Whether markets actually obey him is a different question, and it deserves a
                 better answer than anecdotes and screenshots. That is what this analysis is
                 for. Every post that touched one of four markets became an event. For each
                 event, the price one day, one week, and one month later was recorded. No
@@ -165,13 +165,13 @@
               <p>
                 Bitcoin never met a quiet news cycle. The largest cryptocurrency trades around the
                 clock, in every timezone, and it reacts to politics faster than any stock exchange
-                can open. Public political messaging on crypto has flipped over time, from deep
-                skepticism in 2019 to later pledges around strategic crypto reserves and industry
-                outreach.
+                can open. Trump's stance on it has flipped completely. In 2019 he said it was based
+                on thin air. By 2024 he was promising a strategic crypto reserve and courting the
+                Bitcoin conference vote.
               </p>
               <p>
-                The dataset holds <strong>28 posting events</strong> tagged to Bitcoin or crypto.
-                The honest summary: political messaging is a small factor. Halving cycles, ETF
+                The dataset holds <strong>28 posting events</strong> where Trump talked about
+                Bitcoin or crypto. The honest summary: he is a small factor. Halving cycles, ETF
                 flows, and macro conditions set the direction. But a handful of individual posts
                 sat right next to violent moves, and those deserve a close look.
               </p>
@@ -185,47 +185,57 @@
                 figures. Every event on this tab happened somewhere on this curve, which is why no
                 single post can be judged without it.
               </p>
-              <figure class="chart-frame" data-chart="slide-01" role="img" aria-label="Bitcoin price line chart from 2009 to 2025"></figure>
+              <figure class="chart-frame">
+                <img data-src="/assets/charts/slide-01.png" alt="Bitcoin price line chart from 2009 to 2025" loading="lazy">
+              </figure>
             </article>
 
             <article class="chart-block reveal">
               <p class="chart-caption">
-                <strong>October 31, 2024.</strong> A high-profile political post celebrated the
-                Satoshi white paper anniversary and promised to end the war on crypto. One
-                month later, a $100k position was worth $137k. The post landed into a rally that was
+                <strong>October 31, 2024.</strong> Trump wished "our great Bitcoiners" a happy
+                anniversary of the Satoshi white paper and promised to end the war on crypto. One
+                month later, a $100k position was worth $137k. He posted into a rally that was
                 already running, so take the credit assignment with a grain of salt. Still, +37%
                 is +37%.
               </p>
-              <figure class="chart-frame" data-chart="slide-02" role="img" aria-label="Bitcoin chart around October 31 2024 political post"></figure>
+              <figure class="chart-frame">
+                <img data-src="/assets/charts/slide-02.png" alt="Bitcoin chart around October 31 2024 Trump post" loading="lazy">
+              </figure>
             </article>
 
             <article class="chart-block reveal">
               <p class="chart-caption">
-                <strong>July 12, 2019.</strong> A sharply bearish political post on Bitcoin.
-                The price gave up almost 11% in a week. People still point at this moment as proof
-                that political messaging moves crypto. Maybe. That summer was also full of
-                regulatory bad news that had nothing to do with any single post.
+                <strong>July 12, 2019.</strong> "I am not a fan of Bitcoin..." The price gave up
+                almost 11% in a week. People still point at this tweet as proof that he moves
+                crypto. Maybe. That summer was also full of regulatory bad news that had nothing
+                to do with him.
               </p>
-              <figure class="chart-frame" data-chart="slide-03" role="img" aria-label="Bitcoin chart around July 12 2019 bearish crypto post"></figure>
+              <figure class="chart-frame">
+                <img data-src="/assets/charts/slide-03.png" alt="Bitcoin chart around July 12 2019 anti-crypto Trump post" loading="lazy">
+              </figure>
             </article>
 
             <article class="chart-block reveal">
               <p class="chart-caption">
-                <strong>March 2, 2025.</strong> A U.S. Crypto Reserve announcement, about
+                <strong>March 2, 2025.</strong> He announced a U.S. Crypto Reserve, which is about
                 as bullish as presidential news gets. Bitcoin fell 14.5% over the following week
                 anyway. The market had priced the policy long before the post landed. Good news on
                 the timeline is not the same thing as good news to a trader.
               </p>
-              <figure class="chart-frame" data-chart="slide-04" role="img" aria-label="Bitcoin chart around March 2 2025 crypto reserve post"></figure>
+              <figure class="chart-frame">
+                <img data-src="/assets/charts/slide-04.png" alt="Bitcoin chart around March 2 2025 crypto reserve post" loading="lazy">
+              </figure>
             </article>
 
             <article class="chart-block reveal">
               <p class="chart-caption">
-                Same 28 events, split by whether the poster held office at the time. The bars say
-                the office alone is not a multiplier. What gets said, and into what kind of market
-                it is said, matters more than the title under the handle.
+                Same 28 events, split by whether he held office at the time. The bars say the
+                presidency is not a multiplier. What he says, and into what kind of market he says
+                it, matters more than the title under the handle.
               </p>
-              <figure class="chart-frame" data-chart="slide-05" role="img" aria-label="Bar chart comparing Bitcoin returns in-office versus not"></figure>
+              <figure class="chart-frame">
+                <img data-src="/assets/charts/slide-05.png" alt="Bar chart comparing Bitcoin returns when Trump was in office versus not" loading="lazy">
+              </figure>
               <p class="chart-note">Source: Power BI report built on the event study. 73,380 cleaned posts, 2009 to 2025.</p>
             </article>
 
@@ -247,9 +257,9 @@
                 social media post ever will, and several of them are usually happening at once.
               </p>
               <p>
-                Political posts appear <strong>705 times</strong> in the Iran-and-energy slice of the
+                Trump appears <strong>705 times</strong> in the Iran-and-energy slice of the
                 dataset, and the average week after those posts is slightly negative. As a single
-                factor, messaging barely registers here. The June 2025 Iran standoff is the exception that
+                factor he barely registers here. The June 2025 Iran standoff is the exception that
                 makes this tab worth reading.
               </p>
             </div>
@@ -261,7 +271,9 @@
                 Two years of crude, swinging between $55 and $90 a barrel. The early-2025 spikes
                 track Middle East tension. Posts decorate this chart. They do not drive it.
               </p>
-              <figure class="chart-frame" data-chart="slide-06" role="img" aria-label="Crude oil price per barrel 2024 to 2025"></figure>
+              <figure class="chart-frame">
+                <img data-src="/assets/charts/slide-06.png" alt="Crude oil price per barrel 2024 to 2025" loading="lazy">
+              </figure>
             </article>
 
             <article class="chart-block reveal">
@@ -271,7 +283,9 @@
                 cluster. That same month had airstrikes, shipping threats, and supply scares. The
                 coloring marks size, nothing else.
               </p>
-              <figure class="chart-frame" data-chart="slide-07" role="img" aria-label="Column chart of oil one-week returns after political posts in June 2025"></figure>
+              <figure class="chart-frame">
+                <img data-src="/assets/charts/slide-07.png" alt="Column chart of oil one-week returns after Trump posts in June 2025" loading="lazy">
+              </figure>
               <p class="chart-note">Read post-event returns here as timing snapshots, never as trade signals.</p>
             </article>
 
@@ -289,13 +303,13 @@
             <div class="section-intro reveal">
               <p>
                 The S&amp;P 500 is the scoreboard for American business. Roughly 500 companies,
-                most of the country's retirement money, and the number political leaders point at when
-                they want credit for the economy. Political posts reference it constantly. Tariffs, China,
-                the Fed, market scorekeeping: <strong>1,772 posting days</strong>
+                most of the country's retirement money, and the number presidents point at when
+                they want credit for the economy. Trump posts about it constantly. Tariffs, China,
+                the Fed, his own stock-market scorekeeping: <strong>1,772 posting days</strong>
                 in the study touch this index.
               </p>
               <p>
-                The week after tagged posts, the index averages +0.3%. The month after, +1.5%. That
+                The week after he posts, the index averages +0.3%. The month after, +1.5%. That
                 sounds like a signal until you remember the index spent most of 2009 to 2025 going
                 up no matter who was typing.
               </p>
@@ -308,17 +322,21 @@
                 Daily closes through 2024 and 2025, from about 5,000 points to nearly 6,900. The
                 violent April 2025 plunge and rebound is the scar tissue of tariff season.
               </p>
-              <figure class="chart-frame" data-chart="slide-08" role="img" aria-label="S&amp;P 500 daily close 2024 to 2025"></figure>
+              <figure class="chart-frame">
+                <img data-src="/assets/charts/slide-08.png" alt="S&P 500 daily close 2024 to 2025" loading="lazy">
+              </figure>
             </article>
 
             <article class="chart-block reveal">
               <p class="chart-caption">
-                <strong>April 8, 2025.</strong> A political post shared coverage of auto tariffs steering
+                <strong>April 8, 2025.</strong> He shared an article about auto tariffs steering
                 jobs back to the U.S., and the index rallied 8.3% over the next week. Did the post
                 cause it, or did it just land at the bottom of a selloff that was due for a relief
                 rally? The chart shows price on both sides of the date. Decide for yourself.
               </p>
-              <figure class="chart-frame" data-chart="slide-09" role="img" aria-label="S&amp;P 500 chart around April 8 2025 tariffs post"></figure>
+              <figure class="chart-frame">
+                <img data-src="/assets/charts/slide-09.png" alt="S&P 500 chart around April 8 2025 tariffs post" loading="lazy">
+              </figure>
             </article>
 
             <div class="panel-next reveal">
@@ -335,15 +353,15 @@
             <div class="section-intro reveal">
               <p>
                 The Nasdaq is where the tech giants live, which makes it the natural target for
-                political posts about Big Tech, censorship, and Silicon Valley money. When public
-                messaging targets platforms or election integrity debates, this is the index that
+                Trump's posts about Big Tech, censorship, and Silicon Valley money. When he goes
+                after Google or accuses platforms of rigging elections, this is the index that
                 should flinch.
               </p>
               <p>
                 <strong>74 tagged events.</strong> A 79% one-month win rate, the best of any
                 market in the study, averaging +3.0%. Before anyone builds a strategy on that
-                number: tech beat nearly everything for fifteen straight years. Many of these posts
-                landed into the strongest tailwind in modern markets.
+                number: tech beat nearly everything for fifteen straight years. He was posting
+                into the strongest tailwind in modern markets.
               </p>
             </div>
 
@@ -354,17 +372,21 @@
                 The index over time, with the headline numbers from the event study alongside it:
                 average returns, win rates, and event counts.
               </p>
-              <figure class="chart-frame" data-chart="slide-10" role="img" aria-label="Nasdaq index chart with event study statistics"></figure>
+              <figure class="chart-frame">
+                <img data-src="/assets/charts/slide-10.png" alt="Nasdaq index chart with event study statistics" loading="lazy">
+              </figure>
             </article>
 
             <article class="chart-block reveal">
               <p class="chart-caption">
-                <strong>November 2, 2020.</strong> The night before the election, a political post
-                accused Big Tech of election interference. The Nasdaq added 6.9% over the next week.
-                It was also the single noisiest trading week of that year, with an entire
-                presidential election inside it. Read this one as a timestamp, not a trigger.
+                <strong>November 2, 2020.</strong> The night before the election, he accused Big
+                Tech of buying Biden. The Nasdaq added 6.9% over the next week. It was also the
+                single noisiest trading week of that year, with an entire presidential election
+                inside it. Read this one as a timestamp, not a trigger.
               </p>
-              <figure class="chart-frame" data-chart="slide-11" role="img" aria-label="Nasdaq chart around November 2 2020 election-eve political post"></figure>
+              <figure class="chart-frame">
+                <img data-src="/assets/charts/slide-11.png" alt="Nasdaq chart around November 2 2020 election eve Trump post" loading="lazy">
+              </figure>
             </article>
 
             <div class="panel-next reveal">
@@ -449,14 +471,15 @@
                   conclusions.
                 </p>
               </div>
-              <figure class="about-portrait" data-photo="charts/slide-10.png" role="img" aria-label="Nasdaq event-study chart from the Power BI report">
-                <figcaption>A sample event-study chart from the analysis.</figcaption>
+              <figure class="about-portrait">
+                <img data-src="/assets/trump-portrait.jpg" alt="Official presidential portrait of Donald Trump" loading="lazy">
+                <figcaption>The subject. Official presidential portrait.</figcaption>
               </figure>
             </div>
 
             <h3 class="about-heading reveal">The data</h3>
             <ul class="about-list reveal">
-              <li><strong>Posts:</strong> 90,343 raw records cleaned down to 73,380 (2009 to 2025). Deleted posts, pure reposts, and empty text were removed so the analysis covers only substantive political communication.</li>
+              <li><strong>Posts:</strong> 90,343 raw records cleaned down to 73,380 (2009 to 2025). Deleted posts, pure reposts, and empty text were removed so the analysis covers only what Trump actually wrote.</li>
               <li><strong>Prices:</strong> daily data from Yahoo Finance for the S&amp;P 500, Nasdaq, Dow, VIX, Bitcoin, WTI crude oil, and gold.</li>
               <li><strong>Events:</strong> keyword tagging by topic (Bitcoin, oil and Iran, tariffs, Big Tech, and more), then a posting-day event study with forward returns at one day, one week, and one month.</li>
               <li><strong>Stories:</strong> 12 hand-picked events with the original post text. These feed the calculator and the narrative tabs.</li>
@@ -516,7 +539,7 @@
 
             <footer class="panel-footer">
               <p>
-                Political Sentiment &amp; Financial Markets · An event study by <strong>Suhail Ahmed</strong>
+                Trump Posts &amp; Financial Markets · An event study by <strong>Suhail Ahmed</strong>
               </p>
               <p class="footer-copy">© 2025–2026 Suhail Ahmed. All rights reserved.</p>
               <p class="footer-links">
@@ -545,6 +568,6 @@
 
   </div>
 
-  <script src="/js/app.js?v=12"></script>
+  <script src="/js/app.js?v=9"></script>
 </body>
 </html>

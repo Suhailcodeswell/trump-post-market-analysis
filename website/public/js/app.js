@@ -1,5 +1,5 @@
 /**
- * Political Sentiment Market Analysis.
+ * Trump Post Market Analysis.
  * Two-screen layout: hero, then a horizontal tab deck.
  * Tabs slide left/right; swipe, arrow keys, and edge arrows all work.
  */
@@ -20,7 +20,7 @@ const CONTACT = {
 };
 
 const TAB_ORDER = ["story", "bitcoin", "oil", "sp500", "nasdaq", "invest", "about"];
-const TRANSITION_OUT_MS = 180;
+const TRANSITION_OUT_MS = 220;
 
 let events = [];
 let summary = [];
@@ -29,31 +29,8 @@ let switching = false;
 
 function loadPanelImages(panel) {
   if (!panel) return;
-  panel.querySelectorAll("figure[data-chart]:not([data-loaded])").forEach((figure) => {
-    const img = document.createElement("img");
-    img.src = `/assets/charts/${figure.dataset.chart}.png`;
-    img.alt = figure.getAttribute("aria-label") || "";
-    img.loading = "lazy";
-    img.decoding = "async";
-    figure.appendChild(img);
-    figure.dataset.loaded = "true";
-  });
-  panel.querySelectorAll("figure[data-photo]:not([data-loaded])").forEach((figure) => {
-    const img = document.createElement("img");
-    img.src = `/assets/${figure.dataset.photo}`;
-    img.alt = figure.getAttribute("aria-label") || "";
-    img.loading = "lazy";
-    img.decoding = "async";
-    figure.insertBefore(img, figure.firstChild);
-    figure.dataset.loaded = "true";
-  });
-}
-
-function preloadChartImages() {
-  document.querySelectorAll("[data-chart]").forEach((figure) => {
-    const img = new Image();
-    img.decoding = "async";
-    img.src = `/assets/charts/${figure.dataset.chart}.png`;
+  panel.querySelectorAll("img[data-src]:not([src])").forEach((img) => {
+    img.src = img.dataset.src;
   });
 }
 
@@ -81,11 +58,6 @@ async function init() {
 
   renderStats();
   setupCalculator();
-
-  const scheduleIdle =
-    window.requestIdleCallback ||
-    ((cb) => window.setTimeout(cb, 1200));
-  scheduleIdle(() => preloadChartImages(), { timeout: 4000 });
 }
 
 function applyContactLinks() {
@@ -138,13 +110,11 @@ function isMobileSnap() {
 }
 
 function scrollToDeck() {
-  if (autoScrolling) return;
   const duration = isMobileSnap() ? 1400 : 1200;
   animateScrollTo(document.getElementById("deck").offsetTop, duration);
 }
 
 function scrollToTop() {
-  if (autoScrolling) return;
   const duration = isMobileSnap() ? 1400 : 1200;
   animateScrollTo(0, duration);
 }
@@ -167,14 +137,7 @@ function setupSnap() {
         e.preventDefault();
         return;
       }
-
       const onHero = wrap.scrollTop < deck.offsetTop * 0.5;
-      if (!onHero) {
-        const panel = document.querySelector(".panel.active");
-        // Let normal panel scrolling run without touching the outer snap container.
-        if (panel && (panel.scrollTop > 0 || e.deltaY > 0)) return;
-      }
-
       if (onHero && e.deltaY > 8) {
         e.preventDefault();
         scrollToDeck();
@@ -535,7 +498,7 @@ function setupCalculator() {
           <div class="result-detail">Gain / loss vs. entry</div>
         </div>
       </div>
-      <blockquote class="event-quote">"${escapeHtml(neutralizeHeadline(ev.headline))}"</blockquote>
+      <blockquote class="event-quote">"${escapeHtml(ev.headline)}"</blockquote>
       <p class="result-detail" style="margin-top: 1rem;">
         Hypothetical back-test only. The post may not have caused this return.
         Other news and macro factors were active on ${ev.date}.
@@ -577,33 +540,4 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-function neutralizeHeadline(text) {
-  return String(text || "")
-    .replace(/President Donald J\. Trump/gi, "a political figure")
-    .replace(/Donald J\. Trump/gi, "a political figure")
-    .replace(/Donald Trump/gi, "a political figure")
-    .replace(/\bTrump\b/gi, "the poster");
-}
-
-function loadAnalytics() {
-  if (document.querySelector('script[src*="/_vercel/insights/script.js"]')) return;
-  window.va =
-    window.va ||
-    function () {
-      (window.vaq = window.vaq || []).push(arguments);
-    };
-  const script = document.createElement("script");
-  script.defer = true;
-  script.src = "/_vercel/insights/script.js";
-  document.head.appendChild(script);
-}
-
-function scheduleAnalytics() {
-  const scheduleIdle =
-    window.requestIdleCallback ||
-    ((cb) => window.setTimeout(cb, 2000));
-  scheduleIdle(() => loadAnalytics(), { timeout: 5000 });
-}
-
 document.addEventListener("DOMContentLoaded", init);
-scheduleAnalytics();

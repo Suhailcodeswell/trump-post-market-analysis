@@ -1,12 +1,12 @@
-# Political Sentiment and Financial Markets
+# Presidential Posts and Financial Markets
 
-Event study on whether high-profile political social posts are associated with forward market returns. Cleaned 90,343 posts down to 73,380 (2009-2025), scored sentiment, tagged topics, and measured outcomes for Bitcoin, oil, the S&P 500, and Nasdaq.
+Event study on whether presidential social media posts are associated with forward market returns. Cleaned 90,343 posts down to 73,380 (2009-2025), scored sentiment, tagged topics, and measured outcomes for Bitcoin, oil, the S&P 500, and Nasdaq.
 
 **Live site:** [political-sentiment-market-analysis.vercel.app](https://political-sentiment-market-analysis.vercel.app)
 
 ## Question
 
-When political posts mention a market topic, what happens to that market over the next day, week, and month?
+When posts mention a market topic, what happens to that market over the next day, week, and month?
 
 This is an association study, not proof of causation, and not financial advice.
 
